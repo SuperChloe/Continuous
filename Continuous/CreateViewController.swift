@@ -27,6 +27,8 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         numberField.delegate = self
         pickerView.delegate = self
         intervalField.inputView = pickerView
+        
+        generateQuote()
     }
     
     // MARK: Button - saving to realm
