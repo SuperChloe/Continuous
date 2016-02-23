@@ -86,11 +86,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLU-ps-Unw">
+                                <rect key="frame" x="20" y="394" width="135" height="30"/>
+                                <state key="normal" title="Save Habit"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5cG-bx-F2h"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="day" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XJx-ep-UfI">
+                                <rect key="frame" x="58" y="345" width="156" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="habitField" destination="9t7-av-LOL" id="Uag-h2-O5V"/>
+                        <outlet property="intervalField" destination="XJx-ep-UfI" id="isR-SR-gFC"/>
                         <outlet property="numberField" destination="3A2-QF-Ody" id="deU-F3-Iz9"/>
                         <outlet property="quoteLabel" destination="5Zl-hq-70a" id="7tZ-VC-jbP"/>
                     </connections>
