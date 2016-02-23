@@ -6,8 +6,8 @@
 //  Copyright © 2016 Chloe Horgan. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
 class HabitCollectionViewCell: UICollectionViewCell {
-
+    
 }
