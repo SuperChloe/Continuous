@@ -32,7 +32,11 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     // MARK: Button - saving to realm
 
     @IBAction func saveButtonPressed(sender: AnyObject) {
-        // Save to realm
+        let habit = createHabit()
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(habit)
+        }
     }
     
     // MARK: Pickerview methods
@@ -54,8 +58,9 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     }
     
     // MARK: Helper methods
-    func createHabit() {
+    func createHabit() -> Habit {
         let habit = Habit(habitName: habitField.text!, habitFrequency: Int(numberField.text!)!, habitInterval: Interval(rawValue: intervalField.text!)!)
+        return habit
     }
 }
 
