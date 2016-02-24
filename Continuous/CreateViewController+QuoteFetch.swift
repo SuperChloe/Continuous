@@ -11,15 +11,15 @@ import Foundation
 extension CreateViewController {
     
     func generateQuote() {
-        let url = NSURL(string: "http://quotes.rest/qod.json?category=inspire")
+        let url = NSURL(string: "http://quotes.rest/quote.json?category=inspire&api_key=T6jlW_kFgFsJR0VblaFE1weF")
         let session = NSURLSession.sharedSession()
         session.dataTaskWithURL(url!, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
             
             do {
                 let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
-                print(json)
-                let text = json["conents"]!["quotes"]!["quote"]!
-                let author = json["contents"]!["quotes"]!["author"]!
+                let contents = json["contents"] as! NSDictionary
+                let text = contents["quote"] as! String
+                let author = contents["author"] as! String
                 print(text, author)
             } catch {
                 print(error)
