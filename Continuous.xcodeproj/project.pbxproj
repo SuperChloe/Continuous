@@ -17,6 +17,7 @@
 		89EDD6BC1C7CB9A5007E82B9 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EDD6BB1C7CB9A5007E82B9 /* Habit.swift */; };
 		89EDD6BE1C7CE56C007E82B9 /* CreateViewController+QuoteFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EDD6BD1C7CE56C007E82B9 /* CreateViewController+QuoteFetch.swift */; };
 		89EDD6C21C7CFFEE007E82B9 /* HabitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EDD6C11C7CFFEE007E82B9 /* HabitCollectionViewCell.swift */; };
+		89EDD6C41C7E5873007E82B9 /* GradientMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EDD6C31C7E5873007E82B9 /* GradientMaker.swift */; };
 		B1FB88CB3B560D37F22D60EB /* Pods_Continuous.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7500D97E2E845D3312F03 /* Pods_Continuous.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		89EDD6BB1C7CB9A5007E82B9 /* Habit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		89EDD6BD1C7CE56C007E82B9 /* CreateViewController+QuoteFetch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CreateViewController+QuoteFetch.swift"; sourceTree = "<group>"; };
 		89EDD6C11C7CFFEE007E82B9 /* HabitCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitCollectionViewCell.swift; sourceTree = "<group>"; };
+		89EDD6C31C7E5873007E82B9 /* GradientMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientMaker.swift; sourceTree = "<group>"; };
 		A813BCFC727FFF329C111454 /* Pods-Continuous.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Continuous.release.xcconfig"; path = "Pods/Target Support Files/Pods-Continuous/Pods-Continuous.release.xcconfig"; sourceTree = "<group>"; };
 		D6AABC9F4FB69B75BD274976 /* Pods-Continuous.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Continuous.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Continuous/Pods-Continuous.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +96,7 @@
 				898C5BFE1C7BC8ED00E67F6E /* DetailViewController.swift */,
 				89EDD6BB1C7CB9A5007E82B9 /* Habit.swift */,
 				89EDD6C11C7CFFEE007E82B9 /* HabitCollectionViewCell.swift */,
+				89EDD6C31C7E5873007E82B9 /* GradientMaker.swift */,
 				898C5BFC1C7BC8C300E67F6E /* HabitCollectionViewController.swift */,
 				898C5BEE1C7BAEA800E67F6E /* Main.storyboard */,
 				898C5BF11C7BAEA800E67F6E /* Assets.xcassets */,
@@ -230,6 +233,7 @@
 				89EDD6BE1C7CE56C007E82B9 /* CreateViewController+QuoteFetch.swift in Sources */,
 				89EDD6C21C7CFFEE007E82B9 /* HabitCollectionViewCell.swift in Sources */,
 				89EDD6BC1C7CB9A5007E82B9 /* Habit.swift in Sources */,
+				89EDD6C41C7E5873007E82B9 /* GradientMaker.swift in Sources */,
 				898C5BEB1C7BAEA800E67F6E /* AppDelegate.swift in Sources */,
 				898C5BFD1C7BC8C300E67F6E /* HabitCollectionViewController.swift in Sources */,
 				898C5BFF1C7BC8ED00E67F6E /* DetailViewController.swift in Sources */,

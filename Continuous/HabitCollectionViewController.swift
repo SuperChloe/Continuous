@@ -11,7 +11,9 @@ import UIKit
 private let reuseIdentifier = "HabitCell"
 
 class HabitCollectionViewController: UICollectionViewController {
-
+    
+    @IBOutlet var habitView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +22,9 @@ class HabitCollectionViewController: UICollectionViewController {
 
         // Register cell classes
      //   self.collectionView!.registerClass(HabitCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        self.habitView.backgroundView = UIView()
+        GradientMaker.gradientBackground(self.habitView.backgroundView!)
 
     }
 
