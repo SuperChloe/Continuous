@@ -19,7 +19,7 @@ class HabitCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.registerClass(HabitCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+     //   self.collectionView!.registerClass(HabitCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
     }
 
@@ -35,9 +35,10 @@ class HabitCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> HabitCollectionViewCell {
-        let cell: HabitCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! HabitCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! HabitCollectionViewCell
     
         cell.backgroundColor = .redColor()
+        cell.label.text = "Test"
     
         return cell
     }
