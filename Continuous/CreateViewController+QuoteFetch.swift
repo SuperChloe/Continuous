@@ -20,7 +20,9 @@ extension CreateViewController {
                 let contents = json["contents"] as! NSDictionary
                 let text = contents["quote"] as! String
                 let author = contents["author"] as! String
-                print(text, author)
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.quoteLabel.text = "\(text) \n -\(author)"
+                })
             } catch {
                 print(error)
                 
