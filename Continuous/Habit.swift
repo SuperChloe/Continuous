@@ -18,16 +18,12 @@ enum Interval: String {
 
 class Habit: Object {
     
-    var name: String!
+    dynamic var name: String!
     var frequency: Int!
     var interval: Interval!
-    
-    required init() {
-        super.init()
-    }
-    
-    init(habitName: String, habitFrequency: Int, habitInterval: Interval) {
-        super.init()
+
+    convenience required init(habitName: String, habitFrequency: Int, habitInterval: Interval) {
+        self.init()
         name = habitName
         frequency = habitFrequency
         interval = habitInterval

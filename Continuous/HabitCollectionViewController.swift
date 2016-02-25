@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import RealmSwift
 
 private let reuseIdentifier = "HabitCell"
 
 class HabitCollectionViewController: UICollectionViewController {
     
     @IBOutlet var habitView: UICollectionView!
+    var results: Results<Habit>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +29,11 @@ class HabitCollectionViewController: UICollectionViewController {
         GradientMaker.gradientBackground(self.habitView.backgroundView!)
 
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        results = try! Realm().objects(Habit)
+        habitView.reloadData()
+    }
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -36,14 +42,17 @@ class HabitCollectionViewController: UICollectionViewController {
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return results!.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> HabitCollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! HabitCollectionViewCell
-    
-        cell.backgroundColor = .redColor()
-        cell.label.text = "Test"
+        let habit = results![indexPath.row]
+        print(habit.name)
+        
+        cell.backgroundView = UIView()
+        GradientMaker.gradientYellow(cell.backgroundView!)
+        cell.label!.text = habit.name
     
         return cell
     }
