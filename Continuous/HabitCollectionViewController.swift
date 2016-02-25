@@ -26,7 +26,6 @@ class HabitCollectionViewController: UICollectionViewController {
      //   self.collectionView!.registerClass(HabitCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         self.habitView.backgroundView = UIView()
-        GradientMaker.gradientBackground(self.habitView.backgroundView!)
 
     }
     
@@ -34,6 +33,12 @@ class HabitCollectionViewController: UICollectionViewController {
         results = try! Realm().objects(Habit)
         habitView.reloadData()
     }
+    
+    override func viewDidLayoutSubviews() {
+        self.habitView.backgroundView!.frame = self.view.bounds
+        GradientMaker.gradientBackground(self.habitView.backgroundView!)
+    }
+    
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
