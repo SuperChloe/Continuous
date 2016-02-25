@@ -26,6 +26,9 @@ class HabitCollectionViewController: UICollectionViewController {
      //   self.collectionView!.registerClass(HabitCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         self.habitView.backgroundView = UIView()
+        
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        view.addGestureRecognizer(swipeGesture)
 
     }
     
@@ -37,6 +40,14 @@ class HabitCollectionViewController: UICollectionViewController {
     override func viewDidLayoutSubviews() {
         self.habitView.backgroundView!.frame = self.view.bounds
         GradientMaker.gradientBackground(self.habitView.backgroundView!)
+    }
+    
+    // MARK: Transitions/segues
+    
+    func swiped(recognizer: UISwipeGestureRecognizer) {
+        if recognizer.state == .Recognized {
+            print("Swiped!")
+        }
     }
     
     // MARK: UICollectionViewDataSource
@@ -57,7 +68,9 @@ class HabitCollectionViewController: UICollectionViewController {
         
         cell.backgroundView = UIView()
         GradientMaker.gradientYellow(cell.backgroundView!)
-        cell.label!.text = habit.name
+        cell.nameLabel!.text = habit.name
+        cell.frequencyLabel!.text = String(habit.frequency)
+        cell.intervalLabel!.text = habit.interval?.rawValue
     
         return cell
     }

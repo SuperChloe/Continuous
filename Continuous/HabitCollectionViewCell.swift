@@ -10,5 +10,7 @@ import UIKit
 
 class HabitCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var frequencyLabel: UILabel!
+    @IBOutlet weak var intervalLabel: UILabel!
 }
