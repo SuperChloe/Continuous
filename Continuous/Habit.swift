@@ -19,14 +19,27 @@ enum Interval: String {
 class Habit: Object {
     
     dynamic var name: String!
-    var frequency: Int!
-    var interval: Interval!
+    dynamic var frequency = 0
+    
+    private dynamic var rawInterval: String!
+    var interval: Interval! {
+        get {
+            if let i = Interval(rawValue: rawInterval) {
+                return i
+            }
+            return .Daily
+        }
+        set {
+            rawInterval = newValue.rawValue
+        }
+    }
 
     convenience required init(habitName: String, habitFrequency: Int, habitInterval: Interval) {
         self.init()
         name = habitName
         frequency = habitFrequency
         interval = habitInterval
+        
     }
 }
  

@@ -64,11 +64,12 @@
                     </collectionView>
                     <connections>
                         <outlet property="habitView" destination="VM3-Tq-yf5" id="98W-Vw-p72"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="createSegue" id="gjI-GM-6Lk"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCK-yH-XTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="476" y="-360"/>
+            <point key="canvasLocation" x="1079" y="302"/>
         </scene>
         <!--Create View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -166,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3s-3e-Cty" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1012" y="301"/>
+            <point key="canvasLocation" x="1395" y="268"/>
         </scene>
     </scenes>
 </document>

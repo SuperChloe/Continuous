@@ -45,9 +45,10 @@ class HabitCollectionViewController: UICollectionViewController {
     // MARK: Transitions/segues
     
     func swiped(recognizer: UISwipeGestureRecognizer) {
-        if recognizer.state == .Recognized {
-            print("Swiped!")
-        }
+//        if recognizer.state == .Recognized {
+            print("Swiped")
+            performSegueWithIdentifier("createSegue", sender: self)
+//        }
     }
     
     // MARK: UICollectionViewDataSource
