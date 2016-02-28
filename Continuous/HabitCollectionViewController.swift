@@ -53,7 +53,7 @@ class HabitCollectionViewController: UICollectionViewController {
         GradientMaker.gradientYellow(cell.backgroundView!)
         cell.nameLabel!.text = habit.name
         cell.frequencyLabel!.text = String(habit.frequency)
-        cell.intervalLabel!.text = habit.interval?.rawValue
+        cell.intervalLabel!.text = "time this \(habit.interval!.rawValue)"
     
         return cell
     }
