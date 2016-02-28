@@ -18,10 +18,9 @@ class HabitCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
+        self.habitView.delegate = self
+        self.habitView.dataSource = self
         self.habitView.backgroundView = UIView()
     }
     
@@ -57,5 +56,17 @@ class HabitCollectionViewController: UICollectionViewController {
         cell.intervalLabel!.text = habit.interval?.rawValue
     
         return cell
+    }
+    
+    // MARK: UICollectionViewDelegate
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let habit = results![indexPath.row]
+        
+        try! Realm().write {
+            habit.frequency = habit.frequency - 1
+        }
+        
+        habitView.reloadData()
     }
 }
