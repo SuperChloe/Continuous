@@ -22,11 +22,15 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         super.viewDidLoad()
         
         let pickerView = UIPickerView()
+        let pickerToolbar = UIToolbar()
         
         habitField.delegate = self
         numberField.delegate = self
         pickerView.delegate = self
+        
+        setupPickerToolbar(pickerToolbar)
         intervalField.inputView = pickerView
+        intervalField.inputAccessoryView = pickerToolbar
         
         generateQuote()
         
@@ -68,6 +72,23 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         let inter = Interval(rawValue: intervalField.text!)!
         let habit = Habit(habitName: name, habitFrequency: freq, habitInterval: inter)
         return habit
+    }
+    
+    func setupPickerToolbar(toolBar: UIToolbar) {
+        toolBar.barStyle = .Default
+        toolBar.translucent = true
+        toolBar.tintColor = UIColor(red: 233.0/255.0, green: 127.0/255.0, blue: 2.0/255.0, alpha: 1.0)
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "donePicker")
+        let space = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: self, action: nil)
+        
+        toolBar.setItems([space, doneButton], animated: false)
+        toolBar.userInteractionEnabled = true
+    }
+    
+    func donePicker() {
+        intervalField.resignFirstResponder()
     }
 }
 
