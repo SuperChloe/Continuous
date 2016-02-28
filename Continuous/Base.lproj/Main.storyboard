@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Tfu-Oi-bRn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3en-kG-HOv">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
+        <!--Page View Controller-->
+        <scene sceneID="ixv-QD-w76">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="3en-kG-HOv" customClass="PageViewController" customModule="Continuous" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oNe-pw-7j2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1082" y="-360"/>
+        </scene>
         <!--Habit Collection View Controller-->
         <scene sceneID="y7S-Cs-I7C">
             <objects>
-                <collectionViewController id="Tfu-Oi-bRn" customClass="HabitCollectionViewController" customModule="Continuous" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="HabitCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Tfu-Oi-bRn" customClass="HabitCollectionViewController" customModule="Continuous" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="VM3-Tq-yf5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,7 +72,6 @@
                     </collectionView>
                     <connections>
                         <outlet property="habitView" destination="VM3-Tq-yf5" id="98W-Vw-p72"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="createSegue" id="gjI-GM-6Lk"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCK-yH-XTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -74,7 +81,7 @@
         <!--Create View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CreateViewController" customModule="Continuous" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="CreateViewController" customModule="Continuous" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -149,12 +156,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="380" y="302"/>
+            <point key="canvasLocation" x="441" y="302"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="nNo-yX-emB">
             <objects>
-                <viewController id="nzG-fW-lfK" customClass="DetailViewController" customModule="Continuous" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nzG-fW-lfK" customClass="DetailViewController" customModule="Continuous" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="20N-xm-zgI"/>
                         <viewControllerLayoutGuide type="bottom" id="xLX-oG-9tD"/>
@@ -167,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3s-3e-Cty" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1395" y="268"/>
+            <point key="canvasLocation" x="1713" y="302"/>
         </scene>
     </scenes>
 </document>
