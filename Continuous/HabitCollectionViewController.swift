@@ -22,6 +22,11 @@ class HabitCollectionViewController: UICollectionViewController {
         self.habitView.delegate = self
         self.habitView.dataSource = self
         self.habitView.backgroundView = UIView()
+        
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: "doubleTap:")
+        doubleTapGesture.delaysTouchesBegan = true
+        doubleTapGesture.numberOfTapsRequired = 2
+        self.habitView .addGestureRecognizer(doubleTapGesture)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -61,12 +66,27 @@ class HabitCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDelegate
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let habit = results![indexPath.row]
+//        let habit = results![indexPath.row]
+//        
+//        try! Realm().write {
+//            habit.frequency = habit.frequency - 1
+//        }
+//        
+//        habitView.reloadData()
+        print("did select item at index path")
+    }
+    
+    // MARK: Helper methods
+    
+    func doubleTap(sender: UITapGestureRecognizer) {
+        let point = sender.locationInView(habitView)
+        let indexPath = habitView.indexPathForItemAtPoint(point)
+        
+        let habit = results![indexPath!.row]
         
         try! Realm().write {
             habit.frequency = habit.frequency - 1
         }
-        
         habitView.reloadData()
     }
 }
