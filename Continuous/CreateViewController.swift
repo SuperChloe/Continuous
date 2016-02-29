@@ -17,13 +17,13 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     @IBOutlet weak var intervalField: UITextField!
     
     var delegate: PagingProtocol?
+    let pickerView = UIPickerView()
     
     var pickerOptions = ["day", "week", "month", "year"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let pickerView = UIPickerView()
+
         let pickerToolbar = UIToolbar()
         
         habitField.delegate = self
@@ -70,6 +70,12 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         intervalField.text = pickerOptions[row]
     }
     
+//    func textFieldDidBeginEditing(textField: UITextField) {
+//        if textField == intervalField {
+//            textField.text = "day"
+//        }
+//    }
+    
     // MARK: Helper methods
     func createHabit() -> Habit {
         let name = habitField.text!.capitalizedString
@@ -93,6 +99,9 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     }
     
     func donePicker() {
+        if intervalField.text!.isEmpty {
+            intervalField.text = "day"
+        }
         intervalField.resignFirstResponder()
     }
 }
