@@ -15,7 +15,7 @@ protocol PagingProtocol {
     
 }
 
-class PageViewController: UIPageViewController, UIPageViewControllerDataSource, PagingProtocol {
+class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, PagingProtocol {
     
     let createViewController: CreateViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CreateViewController") as! CreateViewController
     let habitCollectionViewController: HabitCollectionViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("HabitCollectionViewController") as! HabitCollectionViewController
@@ -29,6 +29,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         super.viewDidLoad()
         
         dataSource = self
+        delegate = self
         createViewController.delegate = self
         habitCollectionViewController.delegate = self
         
@@ -78,6 +79,26 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         }
         
         return orderedViewControllers[nextIndex]
+    }
+    
+    // MARK: UIPageViewControllerDelegate
+    
+    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if !completed {
+            return
+        }
+        
+        if let previous = previousViewControllers.first {
+            if previous.isKindOfClass(DetailViewController) {
+                orderedViewControllers = Array(orderedViewControllers[0...1])
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    // 'Reload data' hack
+                    self.dataSource = nil
+                    self.dataSource = self
+                }
+            }
+        }
     }
     
     // MARK: PagingProtocol
