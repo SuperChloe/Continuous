@@ -15,6 +15,10 @@ class DetailViewController: UIViewController {
     var delegate: PagingProtocol?
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var goalsLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var currentStreakLabel: UILabel!
+    @IBOutlet weak var longestStreakLabel: UILabel!
     @IBOutlet weak var sharebutton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     
@@ -23,7 +27,16 @@ class DetailViewController: UIViewController {
         
         GradientMaker.gradientBackground(self.view)
         
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .LongStyle
+        let dateString = dateFormatter.stringFromDate(habit!.creationDate)
+        
+        
         titleLabel.text = habit?.name
+        goalsLabel.text = "\(habit!.goalFrequency) times a \(habit!.interval.rawValue)"
+        dateLabel.text = "started on \(dateString)"
+        currentStreakLabel.text = "Current Streak: \(habit!.currentStreak)"
+        longestStreakLabel.text = "Longest Streak: \(habit!.longestStreak)"
     }
     
     // MARK: Buttons

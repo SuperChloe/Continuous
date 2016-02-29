@@ -19,6 +19,7 @@ enum Interval: String {
 class Habit: Object {
     
     dynamic var name: String!
+    dynamic var goalFrequency = 0
     dynamic var frequency = 0
     
     private dynamic var rawInterval: String!
@@ -41,6 +42,7 @@ class Habit: Object {
     convenience required init(habitName: String, habitFrequency: Int, habitInterval: Interval, date: NSDate) {
         self.init()
         name = habitName
+        goalFrequency = habitFrequency
         frequency = habitFrequency
         interval = habitInterval
         creationDate = date

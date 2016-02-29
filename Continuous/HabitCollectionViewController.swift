@@ -97,6 +97,12 @@ class HabitCollectionViewController: UICollectionViewController {
         let habit = results![indexPath!.row]
         
         if habit.frequency == 0 {
+//            try! Realm().write {
+//                habit.currentStreak = habit.currentStreak + 1
+//                if habit.currentStreak > habit.longestStreak {
+//                    habit.longestStreak = habit.currentStreak
+//                }
+//            }
             return
         }
         
