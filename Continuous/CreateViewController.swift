@@ -81,7 +81,8 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         let name = habitField.text!.capitalizedString
         let freq = Int(numberField.text!)!
         let inter = Interval(rawValue: intervalField.text!)!
-        let habit = Habit(habitName: name, habitFrequency: freq, habitInterval: inter)
+        let habit = Habit(habitName: name, habitFrequency: freq, habitInterval: inter, date: NSDate())
+        print(habit)
         return habit
     }
     

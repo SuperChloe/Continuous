@@ -33,13 +33,17 @@ class Habit: Object {
             rawInterval = newValue.rawValue
         }
     }
+    
+    dynamic var creationDate: NSDate!
+    dynamic var currentStreak = 0
+    dynamic var longestStreak = 0
 
-    convenience required init(habitName: String, habitFrequency: Int, habitInterval: Interval) {
+    convenience required init(habitName: String, habitFrequency: Int, habitInterval: Interval, date: NSDate) {
         self.init()
         name = habitName
         frequency = habitFrequency
         interval = habitInterval
-        
+        creationDate = date
     }
 }
  
