@@ -68,9 +68,20 @@ class HabitCollectionViewController: UICollectionViewController {
         
         cell.backgroundView = UIView()
         GradientMaker.gradientYellow(cell.backgroundView!)
+        
         cell.nameLabel!.text = habit.name
-        cell.frequencyLabel!.text = String(habit.frequency)
-        cell.intervalLabel!.text = "time this \(habit.interval!.rawValue)"
+        
+        if habit.frequency == 0 {
+            cell.frequencyLabel!.text = "Done!"
+            cell.intervalLabel!.text = "Completed \(habit.interval) goal"
+        } else {
+            cell.frequencyLabel!.text = String(habit.frequency)
+            if habit.interval == .Daily {
+                cell.intervalLabel!.text = "more times today"
+            } else {
+                cell.intervalLabel!.text = "more times this \(habit.interval!.rawValue)"
+            }
+        }
     
         return cell
     }
@@ -89,6 +100,10 @@ class HabitCollectionViewController: UICollectionViewController {
         let indexPath = habitView.indexPathForItemAtPoint(point)
         
         let habit = results![indexPath!.row]
+        
+        if habit.frequency == 0 {
+            return
+        }
         
         try! Realm().write {
             habit.frequency = habit.frequency - 1
