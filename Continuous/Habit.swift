@@ -39,6 +39,7 @@ class Habit: Object {
     dynamic var currentStreak = 0
     dynamic var longestStreak = 0
     dynamic var addToStreak = true
+    let datesDone = List<Dates>()
 
     convenience required init(habitName: String, habitFrequency: Int, habitInterval: Interval, date: NSDate) {
         self.init()
