@@ -9,11 +9,15 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    
+    var habit = Habit()
 
+    @IBOutlet weak var testLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+       testLabel.text = habit.name
     }
 
 }

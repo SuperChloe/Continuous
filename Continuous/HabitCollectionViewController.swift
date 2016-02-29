@@ -39,6 +39,17 @@ class HabitCollectionViewController: UICollectionViewController {
         GradientMaker.gradientBackground(self.habitView.backgroundView!)
     }
     
+    // MARK: Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "showDetail") {
+            let indexPath = self.habitView.indexPathForCell(sender as! UICollectionViewCell)
+            let habit = results![indexPath!.row]
+            let viewController: DetailViewController = segue.destinationViewController as! DetailViewController
+            viewController.habit = habit
+        }
+    }
+    
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -65,16 +76,9 @@ class HabitCollectionViewController: UICollectionViewController {
     
     // MARK: UICollectionViewDelegate
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        let habit = results![indexPath.row]
-//        
-//        try! Realm().write {
-//            habit.frequency = habit.frequency - 1
-//        }
-//        
-//        habitView.reloadData()
-        print("did select item at index path")
-    }
+//    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+//        performSegueWithIdentifier("showDetail", sender: )
+//    }
     
     // MARK: Helper methods
     

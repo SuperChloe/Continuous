@@ -62,6 +62,7 @@
                                     <outlet property="frequencyLabel" destination="vFW-4z-HYQ" id="1O5-cz-bBY"/>
                                     <outlet property="intervalLabel" destination="3kP-RY-8De" id="3ZM-iZ-dcf"/>
                                     <outlet property="nameLabel" destination="D0v-eg-qE8" id="voe-mL-j2n"/>
+                                    <segue destination="nzG-fW-lfK" kind="show" identifier="showDetail" action="showDetailViewController:sender:" id="cff-kx-Bay"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -76,7 +77,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCK-yH-XTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079" y="302"/>
+            <point key="canvasLocation" x="1082" y="302"/>
         </scene>
         <!--Create View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -169,8 +170,19 @@
                     <view key="view" contentMode="scaleToFill" id="yl4-Ps-5aW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRL-tr-Iie">
+                                <rect key="frame" x="178" y="168" width="245" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="testLabel" destination="VRL-tr-Iie" id="iyD-We-nKm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3s-3e-Cty" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
