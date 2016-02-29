@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DetailViewController: UIViewController {
     
@@ -32,6 +33,10 @@ class DetailViewController: UIViewController {
 
     @IBAction func deleteButtonPressed(sender: AnyObject) {
         print("Delete!")
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(habit!)
+        }
     }
 
 }
