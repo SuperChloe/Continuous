@@ -17,7 +17,14 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       testLabel.text = habit.name
+        testLabel.text = habit.name
+        
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        self.view.addGestureRecognizer(swipeGesture)
+    }
+    
+    func swiped(sender: UISwipeGestureRecognizer) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
 }

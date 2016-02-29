@@ -16,6 +16,8 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     @IBOutlet weak var numberField: UITextField!
     @IBOutlet weak var intervalField: UITextField!
     
+    var delegate: PagingProtocol?
+    
     var pickerOptions = ["day", "week", "month", "year"]
     
     override func viewDidLoad() {
@@ -45,6 +47,9 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         try! realm.write {
             realm.add(habit)
         }
+        
+        delegate?.goToHabitCollection()
+        
     }
     
     // MARK: Pickerview methods

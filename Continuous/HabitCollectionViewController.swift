@@ -26,7 +26,7 @@ class HabitCollectionViewController: UICollectionViewController {
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: "doubleTap:")
         doubleTapGesture.delaysTouchesBegan = true
         doubleTapGesture.numberOfTapsRequired = 2
-        self.habitView .addGestureRecognizer(doubleTapGesture)
+        self.habitView.addGestureRecognizer(doubleTapGesture)
     }
     
     override func viewWillAppear(animated: Bool) {

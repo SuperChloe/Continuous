@@ -62,7 +62,6 @@
                                     <outlet property="frequencyLabel" destination="vFW-4z-HYQ" id="1O5-cz-bBY"/>
                                     <outlet property="intervalLabel" destination="3kP-RY-8De" id="3ZM-iZ-dcf"/>
                                     <outlet property="nameLabel" destination="D0v-eg-qE8" id="voe-mL-j2n"/>
-                                    <segue destination="nzG-fW-lfK" kind="show" identifier="showDetail" action="showDetailViewController:sender:" id="cff-kx-Bay"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -71,13 +70,14 @@
                             <outlet property="delegate" destination="Tfu-Oi-bRn" id="ESX-aH-37x"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="hyq-by-S19"/>
                     <connections>
                         <outlet property="habitView" destination="VM3-Tq-yf5" id="98W-Vw-p72"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCK-yH-XTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1082" y="302"/>
+            <point key="canvasLocation" x="1097" y="302"/>
         </scene>
         <!--Create View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -186,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3s-3e-Cty" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1713" y="302"/>
+            <point key="canvasLocation" x="1765" y="302"/>
         </scene>
     </scenes>
 </document>

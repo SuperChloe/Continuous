@@ -8,21 +8,29 @@
 
 import UIKit
 
-class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
+protocol PagingProtocol {
     
-    let orderedViewControllers: [UIViewController] = [
+    func goToHabitCollection()
+    func goToDetail(habit: Habit)
+    
+}
+
+class PageViewController: UIPageViewController, UIPageViewControllerDataSource, PagingProtocol {
+    
+    let createViewController: CreateViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CreateViewController") as! CreateViewController
+    
+    lazy var orderedViewControllers: [UIViewController] = {[
         UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("HabitCollectionViewController"),
-        UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CreateViewController"),
-    ]
+        self.createViewController,
+    ]}()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dataSource = self
+        createViewController.delegate = self
         
-        if let firstViewController = orderedViewControllers.first {
-            setViewControllers([firstViewController], direction: .Reverse, animated: true, completion: nil)
-        }
+        goToHabitCollection()
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,6 +75,18 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         }
         
         return orderedViewControllers[previousIndex]
+    }
+    
+    // MARK: PagingProtocol
+    
+    func goToHabitCollection() {
+        if let firstViewController = orderedViewControllers.first {
+            setViewControllers([firstViewController], direction: .Forward, animated: true, completion: nil)
+        }
+    }
+    
+    func goToDetail(habit: Habit) {
+        
     }
 
 }
