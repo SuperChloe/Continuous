@@ -72,7 +72,7 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     
     // MARK: Helper methods
     func createHabit() -> Habit {
-        let name = habitField.text!
+        let name = habitField.text!.capitalizedString
         let freq = Int(numberField.text!)!
         let inter = Interval(rawValue: intervalField.text!)!
         let habit = Habit(habitName: name, habitFrequency: freq, habitInterval: inter)

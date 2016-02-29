@@ -12,15 +12,26 @@ class DetailViewController: UIViewController {
     
     var habit: Habit?
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var sharebutton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let swipeGesture = UISwipeGestureRecognizer(target: self, action: "swiped:")
-        self.view.addGestureRecognizer(swipeGesture)
+        GradientMaker.gradientBackground(self.view)
+        
+        titleLabel.text = habit?.name
     }
     
-    func swiped(sender: UISwipeGestureRecognizer) {
-        dismissViewControllerAnimated(true, completion: nil)
+    // MARK: Buttons
+    
+    @IBAction func shareButtonPressed(sender: AnyObject) {
+        print("Share!")
+    }
+
+    @IBAction func deleteButtonPressed(sender: AnyObject) {
+        print("Delete!")
     }
 
 }
