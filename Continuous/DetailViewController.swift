@@ -12,6 +12,7 @@ import RealmSwift
 class DetailViewController: UIViewController {
     
     var habit: Habit?
+    var delegate: PagingProtocol?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var sharebutton: UIButton!
@@ -37,6 +38,8 @@ class DetailViewController: UIViewController {
         try! realm.write {
             realm.delete(habit!)
         }
+        
+        delegate?.goToHabitCollection()
     }
 
 }

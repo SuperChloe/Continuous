@@ -110,6 +110,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     func goToDetail(habit: Habit) {
         let detailViewController: DetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
         detailViewController.habit = habit
+        detailViewController.delegate = self
         if orderedViewControllers.count > 2 {
             orderedViewControllers = Array(orderedViewControllers[0...1])
         }
