@@ -15,6 +15,7 @@ class HabitCollectionViewController: UICollectionViewController {
     
     @IBOutlet var habitView: UICollectionView!
     var results: Results<Habit>?
+    var delegate: PagingProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,15 +41,15 @@ class HabitCollectionViewController: UICollectionViewController {
     }
     
     // MARK: Segues
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "showDetail") {
-            let indexPath = self.habitView.indexPathForCell(sender as! UICollectionViewCell)
-            let habit = results![indexPath!.row]
-            let viewController: DetailViewController = segue.destinationViewController as! DetailViewController
-            viewController.habit = habit
-        }
-    }
+//    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if (segue.identifier == "showDetail") {
+//            let indexPath = self.habitView.indexPathForCell(sender as! UICollectionViewCell)
+//            let habit = results![indexPath!.row]
+//            let viewController: DetailViewController = segue.destinationViewController as! DetailViewController
+//            viewController.habit = habit
+//        }
+//    }
     
     // MARK: UICollectionViewDataSource
 
@@ -76,9 +77,10 @@ class HabitCollectionViewController: UICollectionViewController {
     
     // MARK: UICollectionViewDelegate
     
-//    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        performSegueWithIdentifier("showDetail", sender: )
-//    }
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let habit = results![indexPath.row]
+        delegate?.goToDetail(habit)
+    }
     
     // MARK: Helper methods
     

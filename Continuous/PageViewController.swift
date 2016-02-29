@@ -18,10 +18,11 @@ protocol PagingProtocol {
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource, PagingProtocol {
     
     let createViewController: CreateViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CreateViewController") as! CreateViewController
+    let habitCollectionViewController: HabitCollectionViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("HabitCollectionViewController") as! HabitCollectionViewController
     
     lazy var orderedViewControllers: [UIViewController] = {[
-        UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("HabitCollectionViewController"),
         self.createViewController,
+        self.habitCollectionViewController,
     ]}()
 
     override func viewDidLoad() {
@@ -29,6 +30,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         
         dataSource = self
         createViewController.delegate = self
+        habitCollectionViewController.delegate = self
         
         goToHabitCollection()
     }
@@ -44,25 +46,6 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         guard let viewControllerIndex = orderedViewControllers.indexOf(viewController) else {
             return nil
         }
-
-        let nextIndex = viewControllerIndex + 1
-
-        guard orderedViewControllers.count != nextIndex else {
-            return nil
-        }
-
-        guard orderedViewControllers.count > nextIndex else {
-            return nil
-        }
-        
-        return orderedViewControllers[nextIndex]
-
-    }
-    
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewControllers.indexOf(viewController) else {
-            return nil
-        }
         
         let previousIndex = viewControllerIndex - 1
         
@@ -75,18 +58,47 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         }
         
         return orderedViewControllers[previousIndex]
+
+    }
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+        
+        guard let viewControllerIndex = orderedViewControllers.indexOf(viewController) else {
+            return nil
+        }
+        
+        let nextIndex = viewControllerIndex + 1
+        
+        guard orderedViewControllers.count != nextIndex else {
+            return nil
+        }
+        
+        guard orderedViewControllers.count > nextIndex else {
+            return nil
+        }
+        
+        return orderedViewControllers[nextIndex]
     }
     
     // MARK: PagingProtocol
     
     func goToHabitCollection() {
-        if let firstViewController = orderedViewControllers.first {
-            setViewControllers([firstViewController], direction: .Forward, animated: true, completion: nil)
-        }
+        setViewControllers([habitCollectionViewController], direction: .Forward, animated: true, completion: nil)
     }
     
     func goToDetail(habit: Habit) {
+        let detailViewController: DetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
+        detailViewController.habit = habit
+        if orderedViewControllers.count > 2 {
+            orderedViewControllers = Array(orderedViewControllers[0...1])
+        }
+        orderedViewControllers.append(detailViewController)
         
+        // 'Reload data' hack (may be unnecessary in recent iOS?)
+        //dataSource = nil
+        //dataSource = self
+        
+        setViewControllers([detailViewController], direction: .Forward, animated: true, completion: nil)
     }
 
 }
