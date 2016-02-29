@@ -24,15 +24,18 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let pickerToolbar = UIToolbar()
+        let toolbar = UIToolbar()
         
         habitField.delegate = self
         numberField.delegate = self
         pickerView.delegate = self
         
-        setupPickerToolbar(pickerToolbar)
+        setupToolbar(toolbar)
         intervalField.inputView = pickerView
-        intervalField.inputAccessoryView = pickerToolbar
+        
+        habitField.inputAccessoryView = toolbar
+        numberField.inputAccessoryView = toolbar
+        intervalField.inputAccessoryView = toolbar
         
         generateQuote()
         
@@ -82,28 +85,37 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         let freq = Int(numberField.text!)!
         let inter = Interval(rawValue: intervalField.text!)!
         let habit = Habit(habitName: name, habitFrequency: freq, habitInterval: inter, date: NSDate())
-        print(habit)
         return habit
     }
     
-    func setupPickerToolbar(toolBar: UIToolbar) {
+    func setupToolbar(toolBar: UIToolbar) {
         toolBar.barStyle = .Default
         toolBar.translucent = true
         toolBar.tintColor = UIColor(red: 233.0/255.0, green: 127.0/255.0, blue: 2.0/255.0, alpha: 1.0)
         toolBar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "donePicker")
+        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "dismissInput")
         let space = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: self, action: nil)
         
         toolBar.setItems([space, doneButton], animated: false)
         toolBar.userInteractionEnabled = true
     }
     
-    func donePicker() {
-        if intervalField.text!.isEmpty {
-            intervalField.text = "day"
+    func dismissInput() {
+        if habitField.isFirstResponder() {
+            habitField.resignFirstResponder()
         }
-        intervalField.resignFirstResponder()
+        
+        if numberField.isFirstResponder() {
+            numberField.resignFirstResponder()
+        }
+        
+        if intervalField.isFirstResponder() {
+            if intervalField.text!.isEmpty {
+                intervalField.text = "day"
+            }
+            intervalField.resignFirstResponder()
+        }
     }
 }
 
