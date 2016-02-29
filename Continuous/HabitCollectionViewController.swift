@@ -16,18 +16,20 @@ class HabitCollectionViewController: UICollectionViewController {
     @IBOutlet var habitView: UICollectionView!
     var results: Results<Habit>?
     var delegate: PagingProtocol?
+    var gradientView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.habitView.delegate = self
-        self.habitView.dataSource = self
+        habitView.delegate = self
+        habitView.dataSource = self
+        gradientView = UIView()
         self.habitView.backgroundView = UIView()
         
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: "doubleTap:")
         doubleTapGesture.delaysTouchesBegan = true
         doubleTapGesture.numberOfTapsRequired = 2
-        self.habitView.addGestureRecognizer(doubleTapGesture)
+        habitView.addGestureRecognizer(doubleTapGesture)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -37,19 +39,12 @@ class HabitCollectionViewController: UICollectionViewController {
     
     override func viewDidLayoutSubviews() {
         self.habitView.backgroundView!.frame = self.view.bounds
-        GradientMaker.gradientBackground(self.habitView.backgroundView!)
+        GradientMaker.gradientBackground(habitView.backgroundView!)
     }
     
-    // MARK: Segues
-//    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if (segue.identifier == "showDetail") {
-//            let indexPath = self.habitView.indexPathForCell(sender as! UICollectionViewCell)
-//            let habit = results![indexPath!.row]
-//            let viewController: DetailViewController = segue.destinationViewController as! DetailViewController
-//            viewController.habit = habit
-//        }
-//    }
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        habitView.backgroundView?.bounds.origin.y = -habitView.contentOffset.y
+    }
     
     // MARK: UICollectionViewDataSource
 
