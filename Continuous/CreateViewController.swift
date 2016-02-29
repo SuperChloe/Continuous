@@ -39,6 +39,12 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         GradientMaker.gradientBackground(self.view)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        habitField.text = ""
+        numberField.text = ""
+        intervalField.text = ""
+    }
+    
     // MARK: Button - Saving to Realm
 
     @IBAction func saveButtonPressed(sender: AnyObject) {
@@ -69,12 +75,6 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         intervalField.text = pickerOptions[row]
     }
-    
-//    func textFieldDidBeginEditing(textField: UITextField) {
-//        if textField == intervalField {
-//            textField.text = "day"
-//        }
-//    }
     
     // MARK: Helper methods
     func createHabit() -> Habit {
