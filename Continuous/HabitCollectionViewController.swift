@@ -100,46 +100,7 @@ class HabitCollectionViewController: UICollectionViewController {
         
         let habit = results![indexPath!.row]
         
-        if habit.frequency == 1 && habit.addToStreak == true {
-            try! Realm().write {
-                habit.currentStreak = habit.currentStreak + 1
-                if habit.currentStreak > habit.longestStreak {
-                    habit.longestStreak = habit.currentStreak
-                }
-                habit.frequency = 0
-                let date = Date()
-//                let comp = NSDateComponents()
-//                comp.day = 15
-//                comp.month = 2
-//                comp.year = 2016
-//                date.date = NSCalendar.currentCalendar().dateFromComponents(comp)!
-                habit.datesDone.insert(date, atIndex: 0)
-                habit.addToStreak = false
-                
-                for notification: UILocalNotification in UIApplication.sharedApplication().scheduledLocalNotifications! {
-                    if (notification.userInfo!["Creation"] as! NSDate == habit.creationDate) {
-                        UIApplication.sharedApplication().cancelLocalNotification(notification)
-                    }
-                }
-            }
-            habitView.reloadData()
-            return
-        }
-        
-        if habit.frequency == 0 {
-            return
-        }
-        
-        try! Realm().write {
-            habit.frequency = habit.frequency - 1
-            let date = Date()
-//            let comp = NSDateComponents()
-//            comp.day = 14
-//            comp.month = 2
-//            comp.year = 2016
-//            date.date = NSCalendar.currentCalendar().dateFromComponents(comp)!
-            habit.datesDone.insert(date, atIndex: 0)
-        }
+        habit.changeFrequency()
 
         habitView.reloadData()
     }

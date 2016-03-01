@@ -60,5 +60,47 @@ class Habit: Object {
         creationDate = date
         intervalDate = creationDate
     }
+    
+    func changeFrequency() {
+        if frequency == 1 && addToStreak == true {
+            try! Realm().write {
+                currentStreak = currentStreak + 1
+                if currentStreak > longestStreak {
+                    longestStreak = currentStreak
+                }
+                frequency = 0
+                let date = Date()
+                //                let comp = NSDateComponents()
+                //                comp.day = 15
+                //                comp.month = 2
+                //                comp.year = 2016
+                //                date.date = NSCalendar.currentCalendar().dateFromComponents(comp)!
+                datesDone.insert(date, atIndex: 0)
+                addToStreak = false
+                
+                for notification: UILocalNotification in UIApplication.sharedApplication().scheduledLocalNotifications! {
+                    if (notification.userInfo!["Creation"] as! NSDate == creationDate) {
+                        UIApplication.sharedApplication().cancelLocalNotification(notification)
+                    }
+                }
+            }
+            return
+        }
+        
+        if frequency == 0 {
+            return
+        }
+        
+        try! Realm().write {
+            frequency = frequency - 1
+            let date = Date()
+            //            let comp = NSDateComponents()
+            //            comp.day = 14
+            //            comp.month = 2
+            //            comp.year = 2016
+            //            date.date = NSCalendar.currentCalendar().dateFromComponents(comp)!
+            datesDone.insert(date, atIndex: 0)
+        }
+    }
 }
  
