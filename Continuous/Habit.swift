@@ -16,6 +16,13 @@ enum Interval: String {
     case Yearly = "year"
 }
 
+let intervalSort: [Interval : Int] = [
+    .Daily : 0,
+    .Weekly : 1,
+    .Monthly : 2,
+    .Yearly : 3
+]
+
 class Habit: Object {
     
     dynamic var name: String!
@@ -35,6 +42,7 @@ class Habit: Object {
         }
     }
     
+    dynamic var sortingIndex = 0
     dynamic var creationDate: NSDate!
     dynamic var currentStreak = 0
     dynamic var longestStreak = 0
@@ -46,6 +54,7 @@ class Habit: Object {
         goalFrequency = habitFrequency
         frequency = habitFrequency
         interval = habitInterval
+        sortingIndex = intervalSort[habitInterval]!
         creationDate = date
     }
 }
