@@ -56,6 +56,7 @@ struct Reset {
         pushNotification.repeatInterval = .Minute
         pushNotification.soundName = UILocalNotificationDefaultSoundName
         pushNotification.userInfo = ["Creation": habit.creationDate]
+        pushNotification.category = "HABIT_CATEGORY"
         UIApplication.sharedApplication().scheduleLocalNotification(pushNotification)
     }
     
