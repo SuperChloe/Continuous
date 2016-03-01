@@ -43,21 +43,28 @@ class DetailViewController: UIViewController {
     
     @IBAction func shareButtonPressed(sender: AnyObject) {
         let shareActionSheet = UIAlertController(title: "Share", message: "What would you like to share?", preferredStyle: .ActionSheet)
+        
         shareActionSheet.addAction(UIAlertAction(title: "Goal", style: .Default, handler: { (shareActionSheet) -> Void in
+            
             let shareString = "My goal is to \(self.habit!.name) \(self.habit!.goalFrequency) times a \(self.habit!.interval.rawValue)! - via Continuous"
             let activityViewController = UIActivityViewController(activityItems: [shareString], applicationActivities: nil)
             self.presentViewController(activityViewController, animated: true, completion: nil)
         }))
+        
         shareActionSheet.addAction(UIAlertAction(title: "Current Streak", style: .Default, handler: { (shareActionSheet) -> Void in
+            
             let shareString = "Habit: \(self.habit!.name), Current Streak: \(self.habit!.currentStreak) - via Continuous"
             let activityViewController = UIActivityViewController(activityItems: [shareString], applicationActivities: nil)
             self.presentViewController(activityViewController, animated: true, completion: nil)
         }))
+        
         shareActionSheet.addAction(UIAlertAction(title: "Longest Streak", style: .Default, handler: { (shareActionSheet) -> Void in
+            
             let shareString = "Habit: \(self.habit!.name), Longest Streak: \(self.habit!.longestStreak) - via Continuous"
             let activityViewController = UIActivityViewController(activityItems: [shareString], applicationActivities: nil)
             self.presentViewController(activityViewController, animated: true, completion: nil)
         }))
+        
         shareActionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         presentViewController(shareActionSheet, animated: true, completion: nil)
     }
