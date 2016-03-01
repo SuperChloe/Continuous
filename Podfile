@@ -6,6 +6,7 @@ use_frameworks!
 target 'Continuous' do
 
 pod 'RealmSwift'
+pod 'FSCalendar'
 
 end
 

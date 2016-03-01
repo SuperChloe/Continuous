@@ -171,11 +171,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aeV-jr-iPc">
-                                <rect key="frame" x="0.0" y="0.0" width="601" height="602"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aeV-jr-iPc">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E0E-PK-fGy">
-                                        <rect key="frame" x="0.0" y="0.0" width="601" height="346"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E0E-PK-fGy">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="350"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKd-uH-u7X">
                                                 <rect key="frame" x="8" y="308" width="76" height="30"/>
@@ -228,16 +228,26 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="350" id="5NP-KZ-zPY"/>
+                                        </constraints>
                                     </view>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i6F-EU-cvw">
-                                        <rect key="frame" x="0.0" y="346" width="601" height="256"/>
-                                    </scrollView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NB6-km-C10" customClass="FSCalendar">
+                                        <rect key="frame" x="0.0" y="350" width="600" height="250"/>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aeV-jr-iPc" firstAttribute="top" secondItem="yl4-Ps-5aW" secondAttribute="top" id="Tnj-s4-RTc"/>
+                            <constraint firstItem="xLX-oG-9tD" firstAttribute="top" secondItem="aeV-jr-iPc" secondAttribute="bottom" id="Vno-bK-XTU"/>
+                            <constraint firstAttribute="trailing" secondItem="aeV-jr-iPc" secondAttribute="trailing" id="emo-Y5-1vr"/>
+                            <constraint firstItem="aeV-jr-iPc" firstAttribute="leading" secondItem="yl4-Ps-5aW" secondAttribute="leading" id="s0l-dV-CAN"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="calendarView" destination="NB6-km-C10" id="GJZ-bc-6Zq"/>
                         <outlet property="currentStreakLabel" destination="IsS-34-yhZ" id="SvF-Am-lDt"/>
                         <outlet property="dateLabel" destination="CGs-b1-eb7" id="Eg4-xH-woU"/>
                         <outlet property="deleteButton" destination="eAU-lf-MR2" id="hpg-wQ-3Ih"/>

@@ -8,12 +8,14 @@
 
 import UIKit
 import RealmSwift
+import FSCalendar
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate {
     
     var habit: Habit?
     var delegate: PagingProtocol?
     
+    @IBOutlet weak var calendarView: FSCalendar!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var goalsLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -26,6 +28,10 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         GradientMaker.gradientBackground(self.view)
+        
+        calendarView.dataSource = self
+        calendarView.delegate = self
+        calendarView.scrollDirection = .Horizontal
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .LongStyle

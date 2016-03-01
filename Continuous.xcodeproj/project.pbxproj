@@ -40,6 +40,7 @@
 		89EDD6C11C7CFFEE007E82B9 /* HabitCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitCollectionViewCell.swift; sourceTree = "<group>"; };
 		89EDD6C31C7E5873007E82B9 /* GradientMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientMaker.swift; sourceTree = "<group>"; };
 		89F22D781C84FBED00ECA298 /* Dates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
+		89F22D7C1C852DCB00ECA298 /* Continuous-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Continuous-Bridging-Header.h"; sourceTree = "<group>"; };
 		A813BCFC727FFF329C111454 /* Pods-Continuous.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Continuous.release.xcconfig"; path = "Pods/Target Support Files/Pods-Continuous/Pods-Continuous.release.xcconfig"; sourceTree = "<group>"; };
 		D6AABC9F4FB69B75BD274976 /* Pods-Continuous.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Continuous.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Continuous/Pods-Continuous.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +109,7 @@
 				898C5BF11C7BAEA800E67F6E /* Assets.xcassets */,
 				898C5BF31C7BAEA800E67F6E /* LaunchScreen.storyboard */,
 				898C5BF61C7BAEA800E67F6E /* Info.plist */,
+				89F22D7C1C852DCB00ECA298 /* Continuous-Bridging-Header.h */,
 			);
 			path = Continuous;
 			sourceTree = "<group>";
