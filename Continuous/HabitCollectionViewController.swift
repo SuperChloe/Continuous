@@ -143,6 +143,5 @@ class HabitCollectionViewController: UICollectionViewController {
         results = try! Realm().objects(Habit).sorted(sortProperties)
         
         habitView.reloadData()
-        print("collection view reloaded")
     }
 }
