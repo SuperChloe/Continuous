@@ -107,6 +107,8 @@ class HabitCollectionViewController: UICollectionViewController {
                     habit.longestStreak = habit.currentStreak
                 }
                 habit.frequency = 0
+                let date = Dates()
+                habit.datesDone.insert(date, atIndex: 0)
                 habit.addToStreak = false
             }
             habitView.reloadData()
@@ -119,8 +121,11 @@ class HabitCollectionViewController: UICollectionViewController {
         
         try! Realm().write {
             habit.frequency = habit.frequency - 1
+            let date = Dates()
+            habit.datesDone.insert(date, atIndex: 0)
         }
 
         habitView.reloadData()
+        print(habit)
     }
 }

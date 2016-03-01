@@ -11,5 +11,5 @@ import RealmSwift
 
 class Dates: Object {
     
-    dynamic var date: NSDate!
+    dynamic var date = NSDate()
 }
