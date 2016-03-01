@@ -7,35 +7,51 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct Reset {
     
     func reset(timeDate: NSDate) {
         let today = NSDate()
-        // Test
-        if today.timeIntervalSinceDate(timeDate) >= 3 {
-            print("3 secssss")
-        }
-        
-        // Yearly
-        if today.timeIntervalSinceDate(timeDate) >= (86400 * 365) {
-            print("Reset yearlies")
-        }
-        
-        // Monthly
-        if today.timeIntervalSinceDate(timeDate) >= (86400 * 30) {
-            print("Reset monthlies")
-        }
+        let realm = try! Realm()
 
-        // Weekly
-        if today.timeIntervalSinceDate(timeDate) >= 604800 {
-            print("Reset weeklies")
-        }
-        
-        // Daily
-        if today.timeIntervalSinceDate(timeDate) >= 86400 {
-            print("Reset dailies")
-        }
+            // Test
+            if today.timeIntervalSinceDate(timeDate) >= 3 {
+                let results = realm.objects(Habit).filter("rawInterval = 'year'")
+                for habit: Habit in results {
+                    try! realm.write {
+                        habit.frequency = habit.goalFrequency
+                        habit.addToStreak = true
+                    }
+                    print("Cool")
+                }
+            }
+            
+            // Yearly
+            if today.timeIntervalSinceDate(timeDate) >= (86400 * 365) {
+                print("Reset yearlies")
+            }
+            
+            // Monthly
+            if today.timeIntervalSinceDate(timeDate) >= (86400 * 30) {
+                print("Reset monthlies")
+            }
+
+            // Weekly
+            if today.timeIntervalSinceDate(timeDate) >= 604800 {
+                print("Reset weeklies")
+            }
+            
+            // Daily
+            if today.timeIntervalSinceDate(timeDate) >= 86400 {
+                let results = realm.objects(Habit).filter("rawInterval = 'day'")
+                for habit: Habit in results {
+                    try! realm.write {
+                        habit.frequency = habit.goalFrequency
+                        habit.addToStreak = true
+                    }
+                }
+            }
     }
     
     func timePassed(date: NSDate, interval: String) -> NSDate {

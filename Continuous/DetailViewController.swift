@@ -36,9 +36,7 @@ class DetailViewController: UIViewController, FSCalendarDataSource, FSCalendarDe
         calendarView.dataSource = self
         calendarView.delegate = self
         calendarView.scrollDirection = .Horizontal
-        //calendarView.allowsSelection = false
         calendarView.allowsMultipleSelection = true
-//        calendarView.selectDate(calendarView.dateWithYear(2016, month: 2, day: 15))
         
         for date: Date in habit!.datesDone {
            calendarView.selectDate(date.date)

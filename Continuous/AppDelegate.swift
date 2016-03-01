@@ -36,14 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
         foregroundDate = NSDate()
         
-        print(Reset().timePassed(backgroundDate!, interval: "year"))
-        print(Reset().timePassed(backgroundDate!, interval: "month"))
-        print(Reset().timePassed(backgroundDate!, interval: "week"))
-        print(Reset().timePassed(backgroundDate!, interval: "day"))
+        print(Reset().reset(backgroundDate!))
         
-        
-        
-       print(Reset().reset(backgroundDate!))
+        let notification = NSNotificationCenter.defaultCenter()
+        notification.postNotificationName("EnterForeground", object: nil)
     }
 
     func applicationDidBecomeActive(application: UIApplication) {

@@ -34,10 +34,11 @@ class HabitCollectionViewController: UICollectionViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        let sortProperties = [SortDescriptor(property: "addToStreak", ascending: false), SortDescriptor(property: "sortingIndex", ascending: true), SortDescriptor(property: "frequency", ascending: false)]
-        results = try! Realm().objects(Habit).sorted(sortProperties)
-            
-        habitView.reloadData()
+        
+        fetchAndReload()
+        
+        let notifcation = NSNotificationCenter.defaultCenter()
+        notifcation.addObserver(self, selector: "fetchAndReload", name: "EnterForeground", object: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -135,5 +136,13 @@ class HabitCollectionViewController: UICollectionViewController {
         }
 
         habitView.reloadData()
+    }
+    
+    func fetchAndReload() {
+        let sortProperties = [SortDescriptor(property: "addToStreak", ascending: false), SortDescriptor(property: "sortingIndex", ascending: true), SortDescriptor(property: "frequency", ascending: false)]
+        results = try! Realm().objects(Habit).sorted(sortProperties)
+        
+        habitView.reloadData()
+        print("collection view reloaded")
     }
 }
