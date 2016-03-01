@@ -34,11 +34,8 @@ class HabitCollectionViewController: UICollectionViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-
         let sortProperties = [SortDescriptor(property: "addToStreak", ascending: false), SortDescriptor(property: "rawInterval", ascending: true), SortDescriptor(property: "frequency", ascending: false)]
-
         results = try! Realm().objects(Habit).sorted(sortProperties)
-        print(results)
             
         habitView.reloadData()
     }

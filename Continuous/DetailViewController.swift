@@ -42,11 +42,21 @@ class DetailViewController: UIViewController {
     // MARK: Buttons
     
     @IBAction func shareButtonPressed(sender: AnyObject) {
-        print("Share!")
+        let shareActionSheet = UIAlertController(title: "Share", message: "What would you like to share?", preferredStyle: .ActionSheet)
+        shareActionSheet.addAction(UIAlertAction(title: "Goal", style: .Default, handler: { (shareActionSheet) -> Void in
+            print("Goal")
+        }))
+        shareActionSheet.addAction(UIAlertAction(title: "Current Streak", style: .Default, handler: { (shareActionSheet) -> Void in
+            print("current streak")
+        }))
+        shareActionSheet.addAction(UIAlertAction(title: "Longest Streak", style: .Default, handler: { (shareActionSheet) -> Void in
+            print("longest streak")
+        }))
+        shareActionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        presentViewController(shareActionSheet, animated: true, completion: nil)
     }
 
     @IBAction func deleteButtonPressed(sender: AnyObject) {
-        print("Delete!")
         let realm = try! Realm()
         try! realm.write {
             realm.delete(habit!)
