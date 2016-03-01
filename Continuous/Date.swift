@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class Dates: Object {
+class Date: Object {
     
     dynamic var date = NSDate()
 }

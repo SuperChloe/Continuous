@@ -107,7 +107,12 @@ class HabitCollectionViewController: UICollectionViewController {
                     habit.longestStreak = habit.currentStreak
                 }
                 habit.frequency = 0
-                let date = Dates()
+                let date = Date()
+//                let comp = NSDateComponents()
+//                comp.day = 2
+//                comp.month = 3
+//                comp.year = 2016
+//                date.date = NSCalendar.currentCalendar().dateFromComponents(comp)!
                 habit.datesDone.insert(date, atIndex: 0)
                 habit.addToStreak = false
             }
@@ -121,7 +126,12 @@ class HabitCollectionViewController: UICollectionViewController {
         
         try! Realm().write {
             habit.frequency = habit.frequency - 1
-            let date = Dates()
+            let date = Date()
+//            let comp = NSDateComponents()
+//            comp.day = 2
+//            comp.month = 2
+//            comp.year = 2016
+//            date.date = NSCalendar.currentCalendar().dateFromComponents(comp)!
             habit.datesDone.insert(date, atIndex: 0)
         }
 
