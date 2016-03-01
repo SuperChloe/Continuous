@@ -11,64 +11,43 @@ import RealmSwift
 
 struct Reset {
     
-    func reset(timeDate: NSDate) {
+    let realm = try! Realm()
+    
+    func checkReset() {
         let today = NSDate()
-        let realm = try! Realm()
-
-            // TEST 3 SECS
-//            if today.timeIntervalSinceDate(timeDate) >= 3 {
-//                let results = realm.objects(Habit).filter("rawInterval = 'year'")
-//                for habit: Habit in results {
-//                    try! realm.write {
-//                        habit.frequency = habit.goalFrequency
-//                        habit.addToStreak = true
-//                    }
-//                    print("Cool")
-//                }
-//            }
+        let results = realm.objects(Habit)
         
+        for habit: Habit in results {
             // Yearly
-            if today.timeIntervalSinceDate(timeDate) >= (86400 * 365) {
-                let results = realm.objects(Habit).filter("rawInterval = 'year'")
-                for habit: Habit in results {
-                    try! realm.write {
-                        habit.frequency = habit.goalFrequency
-                        habit.addToStreak = true
-                    }
-                }
+            if today.timeIntervalSinceDate(habit.intervalDate) >= (86400 * 365) {
+                resetValues(habit)
             }
-            
             // Monthly
-            if today.timeIntervalSinceDate(timeDate) >= (86400 * 30) {
-                let results = realm.objects(Habit).filter("rawInterval = 'month'")
-                for habit: Habit in results {
-                    try! realm.write {
-                        habit.frequency = habit.goalFrequency
-                        habit.addToStreak = true
-                    }
-                }
+            if today.timeIntervalSinceDate(habit.intervalDate) >= (86400 * 30) {
+                resetValues(habit)
             }
-
             // Weekly
-            if today.timeIntervalSinceDate(timeDate) >= 604800 {
-                let results = realm.objects(Habit).filter("rawInterval = 'week'")
-                for habit: Habit in results {
-                    try! realm.write {
-                        habit.frequency = habit.goalFrequency
-                        habit.addToStreak = true
-                    }
-                }
+            if today.timeIntervalSinceDate(habit.intervalDate) >= 604800 {
+                resetValues(habit)
             }
-            
             // Daily
-            if today.timeIntervalSinceDate(timeDate) >= 86400 {
-                let results = realm.objects(Habit).filter("rawInterval = 'day'")
-                for habit: Habit in results {
-                    try! realm.write {
-                        habit.frequency = habit.goalFrequency
-                        habit.addToStreak = true
-                    }
-                }
+            if today.timeIntervalSinceDate(habit.intervalDate) >= 86400 {
+                resetValues(habit)
             }
+//            // Test (3 secs)
+//            if today.timeIntervalSinceDate(habit.intervalDate) >= 3 {
+//                resetValues(habit)
+//            }
+        }
+        
     }
+    
+    func resetValues(habit: Habit) {
+        try! realm.write {
+            habit.frequency = habit.goalFrequency
+            habit.addToStreak = true
+            habit.intervalDate = NSDate()
+        }
+    }
+    
 }

@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
-        Reset().reset(backgroundDate!)
+        Reset().checkReset()
         
         let notification = NSNotificationCenter.defaultCenter()
         notification.postNotificationName("EnterForeground", object: nil)

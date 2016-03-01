@@ -47,6 +47,7 @@ class Habit: Object {
     dynamic var currentStreak = 0
     dynamic var longestStreak = 0
     dynamic var addToStreak = true
+    dynamic var intervalDate: NSDate!
     let datesDone = List<Date>()
 
     convenience required init(habitName: String, habitFrequency: Int, habitInterval: Interval, date: NSDate) {
@@ -57,6 +58,7 @@ class Habit: Object {
         interval = habitInterval
         sortingIndex = intervalSort[habitInterval]!
         creationDate = date
+        intervalDate = creationDate
     }
 }
  
