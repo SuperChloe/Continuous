@@ -14,6 +14,7 @@ private let reuseIdentifier = "HabitCell"
 class HabitCollectionViewController: UICollectionViewController {
     
     @IBOutlet var habitView: UICollectionView!
+   // var results = [Habit]()
     var results: Results<Habit>?
     var delegate: PagingProtocol?
     var gradientView: UIView?
@@ -33,8 +34,12 @@ class HabitCollectionViewController: UICollectionViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        let sortProperties = [SortDescriptor(property: "rawInterval", ascending: true), SortDescriptor(property: "frequency", ascending: false)]
+
+        let sortProperties = [SortDescriptor(property: "addToStreak", ascending: false), SortDescriptor(property: "rawInterval", ascending: true), SortDescriptor(property: "frequency", ascending: false)]
+
         results = try! Realm().objects(Habit).sorted(sortProperties)
+        print(results)
+            
         habitView.reloadData()
     }
     
@@ -61,6 +66,7 @@ class HabitCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> HabitCollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! HabitCollectionViewCell
         let habit = results![indexPath.row]
+        print(habit)
         
         cell.backgroundView = UIView()
         GradientMaker.gradientYellow(cell.backgroundView!)
@@ -104,6 +110,7 @@ class HabitCollectionViewController: UICollectionViewController {
                     habit.longestStreak = habit.currentStreak
                 }
                 habit.frequency = 0
+                habit.addToStreak = false
             }
             habitView.reloadData()
             return
