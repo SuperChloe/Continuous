@@ -63,7 +63,6 @@ class HabitCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> HabitCollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! HabitCollectionViewCell
         let habit = results![indexPath.row]
-        print(habit)
         
         cell.backgroundView = UIView()
         GradientMaker.gradientYellow(cell.backgroundView!)
@@ -136,6 +135,5 @@ class HabitCollectionViewController: UICollectionViewController {
         }
 
         habitView.reloadData()
-        print(habit)
     }
 }
