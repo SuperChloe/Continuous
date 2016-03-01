@@ -48,6 +48,15 @@ struct Reset {
             habit.addToStreak = true
             habit.intervalDate = NSDate()
         }
+        
+        let pushNotification = UILocalNotification()
+        pushNotification.alertBody = "Did you \(habit.name) this \(habit.interval.rawValue)"
+        pushNotification.alertAction = "Open"
+        pushNotification.fireDate = NSDate()
+        pushNotification.repeatInterval = .Minute
+        pushNotification.soundName = UILocalNotificationDefaultSoundName
+        pushNotification.userInfo = ["Creation": habit.creationDate]
+        UIApplication.sharedApplication().scheduleLocalNotification(pushNotification)
     }
     
 }

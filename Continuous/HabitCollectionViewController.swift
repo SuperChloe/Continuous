@@ -115,6 +115,12 @@ class HabitCollectionViewController: UICollectionViewController {
 //                date.date = NSCalendar.currentCalendar().dateFromComponents(comp)!
                 habit.datesDone.insert(date, atIndex: 0)
                 habit.addToStreak = false
+                
+                for notification: UILocalNotification in UIApplication.sharedApplication().scheduledLocalNotifications! {
+                    if (notification.userInfo!["Creation"] as! NSDate == habit.creationDate) {
+                        UIApplication.sharedApplication().cancelLocalNotification(notification)
+                    }
+                }
             }
             habitView.reloadData()
             return
