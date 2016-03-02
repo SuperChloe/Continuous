@@ -33,6 +33,7 @@ class HabitCollectionViewController: UICollectionViewController, UICollectionVie
         habitView.addGestureRecognizer(doubleTapGesture)
         
         flowLayout.itemSize = CGSize(width: (habitView.bounds.width / 2) - 20, height: (habitView.bounds.width / 2) - 20)
+        flowLayout.headerReferenceSize = CGSize(width: habitView.bounds.width, height: 40)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -47,13 +48,11 @@ class HabitCollectionViewController: UICollectionViewController, UICollectionVie
     }
     
     override func viewDidAppear(animated: Bool) {
-//        self.habitView.backgroundView!.frame = self.view.bounds
         GradientMaker.gradientBackground(habitView.backgroundView!)
     }
     
     override func viewDidLayoutSubviews() {
         self.habitView.backgroundView!.frame = self.view.bounds
-//        GradientMaker.gradientBackground(habitView.backgroundView!)
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -112,6 +111,15 @@ class HabitCollectionViewController: UICollectionViewController, UICollectionVie
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let habit = results![indexPath.row]
         delegate?.goToDetail(habit)
+    }
+    
+    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        var resusableView = UICollectionReusableView()
+        if kind == UICollectionElementKindSectionHeader {
+            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "HabitHeader", forIndexPath: indexPath)
+            resusableView = headerView
+        }
+        return resusableView
     }
     
 // *************************************

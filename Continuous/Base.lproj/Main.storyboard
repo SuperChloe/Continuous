@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Page View Controller-->
@@ -22,13 +23,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KLw-QU-AEg">
                             <size key="itemSize" width="155" height="155"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="0.0" height="70"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="30" maxX="10" maxY="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="20" maxX="10" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HabitCell" id="MRX-nM-wcX" customClass="HabitCollectionViewCell" customModule="Continuous" customModuleProvider="target">
-                                <rect key="frame" x="10" y="30" width="150" height="150"/>
+                                <rect key="frame" x="10" y="90" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
@@ -84,6 +85,28 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HabitHeader" id="9lR-Zh-ndw">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTINUOUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjo-T6-nQV">
+                                    <rect key="frame" x="191" y="37" width="218" height="33"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="33" id="kIv-HR-fx3"/>
+                                        <constraint firstAttribute="width" constant="218" id="npw-yO-ty1"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
+                                    <color key="textColor" red="0.97254901959999995" green="0.79215686269999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                    <color key="shadowColor" red="0.91372549020000005" green="0.49803921569999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <size key="shadowOffset" width="1" height="1"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Zjo-T6-nQV" firstAttribute="centerX" secondItem="9lR-Zh-ndw" secondAttribute="centerX" id="4sw-4z-J7S"/>
+                                <constraint firstItem="Zjo-T6-nQV" firstAttribute="centerY" secondItem="9lR-Zh-ndw" secondAttribute="centerY" constant="18.5" id="qDL-F4-sXv"/>
+                            </constraints>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="Tfu-Oi-bRn" id="0Oj-7S-BuT"/>
                             <outlet property="delegate" destination="Tfu-Oi-bRn" id="ESX-aH-37x"/>
@@ -112,9 +135,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inspo Quote Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Zl-hq-70a">
-                                <rect key="frame" x="20" y="20" width="346" height="64"/>
+                                <rect key="frame" x="20" y="20" width="560" height="64"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="346" id="LUW-oz-JGG"/>
                                     <constraint firstAttribute="height" constant="64" id="XmO-Wa-6mK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="10"/>
@@ -221,6 +243,7 @@
                             <constraint firstItem="oLU-ps-Unw" firstAttribute="top" secondItem="XJx-ep-UfI" secondAttribute="bottom" constant="25" id="fyZ-dH-gar"/>
                             <constraint firstItem="Y5s-94-gjE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="gwT-Xv-aF7"/>
                             <constraint firstItem="xXS-pa-WSQ" firstAttribute="leading" secondItem="3A2-QF-Ody" secondAttribute="trailing" constant="40" id="rMH-tw-wfT"/>
+                            <constraint firstItem="5Zl-hq-70a" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="uhJ-Ch-5EV"/>
                             <constraint firstItem="LNU-Ue-Oit" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="vFn-Um-2MZ"/>
                             <constraint firstItem="oLU-ps-Unw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="z2g-hr-v3S"/>
                         </constraints>
