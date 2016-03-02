@@ -11,9 +11,10 @@ import RealmSwift
 
 private let reuseIdentifier = "HabitCell"
 
-class HabitCollectionViewController: UICollectionViewController {
+class HabitCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet var habitView: UICollectionView!
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     var results: Results<Habit>?
     var delegate: PagingProtocol?
     var gradientView: UIView?
@@ -30,6 +31,8 @@ class HabitCollectionViewController: UICollectionViewController {
         doubleTapGesture.delaysTouchesBegan = true
         doubleTapGesture.numberOfTapsRequired = 2
         habitView.addGestureRecognizer(doubleTapGesture)
+        
+        flowLayout.itemSize = CGSize(width: (habitView.bounds.width / 2) - 20, height: (habitView.bounds.width / 2) - 20)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -73,9 +76,6 @@ class HabitCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> HabitCollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! HabitCollectionViewCell
         let habit = results![indexPath.row]
-        
-       // cell.backgroundView = UIView()
-       // GradientMaker.gradientYellow(cell.backgroundView!)
         
         cell.nameLabel!.text = habit.name
         
