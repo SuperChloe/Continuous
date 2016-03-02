@@ -49,6 +49,8 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         habitField.text = ""
         numberField.text = ""
         intervalField.text = ""
+        pickerView.reloadAllComponents()
+        pickerView.selectRow(0, inComponent: 0, animated: false)
     }
     
 // *************************************
