@@ -20,7 +20,6 @@
 		89EDD6C21C7CFFEE007E82B9 /* HabitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EDD6C11C7CFFEE007E82B9 /* HabitCollectionViewCell.swift */; };
 		89EDD6C41C7E5873007E82B9 /* GradientMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EDD6C31C7E5873007E82B9 /* GradientMaker.swift */; };
 		89F22D791C84FBED00ECA298 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F22D781C84FBED00ECA298 /* Date.swift */; };
-		89F22D7E1C8532E800ECA298 /* DetailViewController+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F22D7D1C8532E800ECA298 /* DetailViewController+Calendar.swift */; };
 		89F22D801C85614500ECA298 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F22D7F1C85614500ECA298 /* Calendar.swift */; };
 		89F22D821C86070F00ECA298 /* Reset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F22D811C86070F00ECA298 /* Reset.swift */; };
 		B1FB88CB3B560D37F22D60EB /* Pods_Continuous.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7500D97E2E845D3312F03 /* Pods_Continuous.framework */; };
@@ -44,7 +43,6 @@
 		89EDD6C31C7E5873007E82B9 /* GradientMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientMaker.swift; sourceTree = "<group>"; };
 		89F22D781C84FBED00ECA298 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		89F22D7C1C852DCB00ECA298 /* Continuous-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Continuous-Bridging-Header.h"; sourceTree = "<group>"; };
-		89F22D7D1C8532E800ECA298 /* DetailViewController+Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DetailViewController+Calendar.swift"; sourceTree = "<group>"; };
 		89F22D7F1C85614500ECA298 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		89F22D811C86070F00ECA298 /* Reset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reset.swift; sourceTree = "<group>"; };
 		A813BCFC727FFF329C111454 /* Pods-Continuous.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Continuous.release.xcconfig"; path = "Pods/Target Support Files/Pods-Continuous/Pods-Continuous.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 				898C5BEC1C7BAEA800E67F6E /* CreateViewController.swift */,
 				89EDD6BD1C7CE56C007E82B9 /* CreateViewController+QuoteFetch.swift */,
 				898C5BFE1C7BC8ED00E67F6E /* DetailViewController.swift */,
-				89F22D7D1C8532E800ECA298 /* DetailViewController+Calendar.swift */,
 				89EDD6BB1C7CB9A5007E82B9 /* Habit.swift */,
 				89F22D781C84FBED00ECA298 /* Date.swift */,
 				89EDD6C11C7CFFEE007E82B9 /* HabitCollectionViewCell.swift */,
@@ -254,7 +251,6 @@
 				89EDD6C41C7E5873007E82B9 /* GradientMaker.swift in Sources */,
 				898C5BEB1C7BAEA800E67F6E /* AppDelegate.swift in Sources */,
 				89F22D801C85614500ECA298 /* Calendar.swift in Sources */,
-				89F22D7E1C8532E800ECA298 /* DetailViewController+Calendar.swift in Sources */,
 				89DF7CCB1C8229E2003AA065 /* PageViewController.swift in Sources */,
 				898C5BFD1C7BC8C300E67F6E /* HabitCollectionViewController.swift in Sources */,
 				89F22D821C86070F00ECA298 /* Reset.swift in Sources */,
