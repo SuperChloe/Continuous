@@ -21,33 +21,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="3" id="KLw-QU-AEg">
-                            <size key="itemSize" width="150" height="150"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="itemSize" width="155" height="155"/>
+                            <size key="headerReferenceSize" width="50" height="30"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HabitCell" id="MRX-nM-wcX" customClass="HabitCollectionViewCell" customModule="Continuous" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                <rect key="frame" x="0.0" y="30" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0v-eg-qE8">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0v-eg-qE8">
                                             <rect key="frame" x="8" y="8" width="134" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="zLM-Fz-QCh"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFW-4z-HYQ">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFW-4z-HYQ">
                                             <rect key="frame" x="8" y="37" width="134" height="77"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="77" id="ZvV-x6-DLy"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="39"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kP-RY-8De">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kP-RY-8De">
                                             <rect key="frame" x="8" y="121" width="134" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Ec1-1J-Owd"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -57,6 +66,17 @@
                                 </view>
                                 <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="3kP-RY-8De" secondAttribute="trailing" constant="8" id="0bg-PE-ndQ"/>
+                                    <constraint firstItem="vFW-4z-HYQ" firstAttribute="leading" secondItem="MRX-nM-wcX" secondAttribute="leading" constant="8" id="7iS-qg-bzg"/>
+                                    <constraint firstItem="vFW-4z-HYQ" firstAttribute="centerY" secondItem="MRX-nM-wcX" secondAttribute="centerY" id="FgH-mV-iQN"/>
+                                    <constraint firstAttribute="trailing" secondItem="D0v-eg-qE8" secondAttribute="trailing" constant="8" id="GDB-N7-77V"/>
+                                    <constraint firstItem="D0v-eg-qE8" firstAttribute="leading" secondItem="MRX-nM-wcX" secondAttribute="leading" constant="8" id="HeG-x5-zbO"/>
+                                    <constraint firstAttribute="bottom" secondItem="3kP-RY-8De" secondAttribute="bottom" constant="8" id="IPi-Af-W9J"/>
+                                    <constraint firstItem="3kP-RY-8De" firstAttribute="leading" secondItem="MRX-nM-wcX" secondAttribute="leading" constant="8" id="SVd-rm-ecb"/>
+                                    <constraint firstItem="D0v-eg-qE8" firstAttribute="top" secondItem="MRX-nM-wcX" secondAttribute="top" constant="8" id="jZr-WN-36B"/>
+                                    <constraint firstAttribute="trailing" secondItem="vFW-4z-HYQ" secondAttribute="trailing" constant="8" id="kAQ-Xm-Eya"/>
+                                </constraints>
                                 <size key="customSize" width="150" height="150"/>
                                 <connections>
                                     <outlet property="frequencyLabel" destination="vFW-4z-HYQ" id="1O5-cz-bBY"/>
@@ -65,6 +85,10 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5oz-aV-ed2">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="Tfu-Oi-bRn" id="0Oj-7S-BuT"/>
                             <outlet property="delegate" destination="Tfu-Oi-bRn" id="ESX-aH-37x"/>

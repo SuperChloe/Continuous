@@ -35,15 +35,23 @@ class HabitCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(animated: Bool) {
         
+        self.habitView.backgroundView!.frame = self.view.bounds
+        GradientMaker.gradientBackground(habitView.backgroundView!)
+        
         fetchAndReload()
         
         let notifcation = NSNotificationCenter.defaultCenter()
         notifcation.addObserver(self, selector: "fetchAndReload", name: "EnterForeground", object: nil)
     }
     
+    override func viewDidAppear(animated: Bool) {
+//        self.habitView.backgroundView!.frame = self.view.bounds
+        GradientMaker.gradientBackground(habitView.backgroundView!)
+    }
+    
     override func viewDidLayoutSubviews() {
         self.habitView.backgroundView!.frame = self.view.bounds
-        GradientMaker.gradientBackground(habitView.backgroundView!)
+//        GradientMaker.gradientBackground(habitView.backgroundView!)
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -65,8 +73,8 @@ class HabitCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! HabitCollectionViewCell
         let habit = results![indexPath.row]
         
-        cell.backgroundView = UIView()
-        GradientMaker.gradientYellow(cell.backgroundView!)
+       // cell.backgroundView = UIView()
+       // GradientMaker.gradientYellow(cell.backgroundView!)
         
         cell.nameLabel!.text = habit.name
         
@@ -81,9 +89,20 @@ class HabitCollectionViewController: UICollectionViewController {
                 cell.intervalLabel!.text = "more times this \(habit.interval!.rawValue)"
             }
         }
+        
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.mainScreen().scale
     
         return cell
     }
+//    
+//    override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+//        cell.backgroundView = UIView()
+//        GradientMaker.gradientYellow(cell.backgroundView!)
+//        
+//        cell.layer.shouldRasterize = true
+//        cell.layer.rasterizationScale = UIScreen.mainScreen().scale
+//    }
     
     // MARK: UICollectionViewDelegate
     
