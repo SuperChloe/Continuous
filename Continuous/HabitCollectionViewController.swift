@@ -77,7 +77,7 @@ class HabitCollectionViewController: UICollectionViewController, UICollectionVie
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! HabitCollectionViewCell
         let habit = results![indexPath.row]
         
-        cell.nameLabel!.text = habit.name
+        cell.nameLabel!.text = habit.name.uppercaseString
         
         if habit.frequency == 0 {
             cell.frequencyLabel!.text = "Done!"

@@ -15,6 +15,7 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     @IBOutlet weak var habitField: UITextField!
     @IBOutlet weak var numberField: UITextField!
     @IBOutlet weak var intervalField: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
     
     var delegate: PagingProtocol?
     let pickerView = UIPickerView()
@@ -25,6 +26,8 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         super.viewDidLoad()
 
         let toolbar = UIToolbar()
+        
+        saveButton.layer.borderColor = UIColor(red: 233.0/255.0, green: 127.0/255.0, blue: 2.0/255.0, alpha: 1.0).CGColor
         
         habitField.delegate = self
         numberField.delegate = self
@@ -58,8 +61,6 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         try! realm.write {
             realm.add(habit)
         }
-        
-        print(habit)
         
         let pushNotification = UILocalNotification()
         pushNotification.alertBody = "Did you \(habit.name) this \(habit.interval.rawValue)"
@@ -107,7 +108,7 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
 // *************************************
     
     func createHabit() -> Habit {
-        let name = habitField.text!.capitalizedString
+        let name = habitField.text!
         let freq = Int(numberField.text!)!
         let inter = Interval(rawValue: intervalField.text!)!
         let habit = Habit(habitName: name, habitFrequency: freq, habitInterval: inter, date: NSDate())
