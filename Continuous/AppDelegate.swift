@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -41,7 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
-        backgroundDate = NSDate()
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -58,10 +58,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+        let results = try! Realm().objects(Habit).filter("uuid = '\(notification.userInfo!["UUID"]!)'")
+        let habit = results.first
         if identifier == "YES" {
-            print("yasss")
-        }
-        if identifier == "NO" {
+            habit?.changeFrequency()
+        } else if identifier == "NO" {
             print("noooo")
         }
         completionHandler()

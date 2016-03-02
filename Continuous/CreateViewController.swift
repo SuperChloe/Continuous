@@ -57,13 +57,15 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             realm.add(habit)
         }
         
+        print(habit)
+        
         let pushNotification = UILocalNotification()
         pushNotification.alertBody = "Did you \(habit.name) this \(habit.interval.rawValue)"
         pushNotification.alertAction = "Open"
         pushNotification.fireDate = NSDate()
         pushNotification.repeatInterval = .Minute
         pushNotification.soundName = UILocalNotificationDefaultSoundName
-        pushNotification.userInfo = ["Creation": habit.creationDate]
+        pushNotification.userInfo = ["UUID" : habit.uuid]
         pushNotification.category = "HABIT_CATEGORY"
         UIApplication.sharedApplication().scheduleLocalNotification(pushNotification)
         
