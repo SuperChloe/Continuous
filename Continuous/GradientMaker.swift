@@ -20,8 +20,8 @@ struct GradientMaker {
     }
     
     static func gradientYellow(view: UIView) {
-        let topColor = UIColor(red: 233.0/255.0, green: 127.0/255.0, blue: 2.0/255.0, alpha: 0.85)
-        let bottomColor = UIColor(red: 248.0/255.0, green: 202.0/255.0, blue: 0.0/255.0, alpha: 0.85)
+        let topColor = UIColor(red: 233.0/255.0, green: 127.0/255.0, blue: 2.0/255.0, alpha: 1.0)
+        let bottomColor = UIColor(red: 248.0/255.0, green: 202.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         let viewGradient = CAGradientLayer()
         viewGradient.colors = [topColor.CGColor, bottomColor.CGColor]
         viewGradient.frame = view.bounds

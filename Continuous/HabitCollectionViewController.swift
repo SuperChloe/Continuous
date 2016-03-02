@@ -91,8 +91,14 @@ class HabitCollectionViewController: UICollectionViewController, UICollectionVie
             }
         }
         
+        if habit.addToStreak == false {
+            cell.backgroundColor = UIColor(red: 248.0/255.0, green: 202.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        } else {
+            cell.backgroundColor = UIColor.clearColor()
+        }
+        
         cell.layer.borderWidth = 1.0
-        cell.layer.borderColor = UIColor(red: 248.0/255.0, green: 202.0/255.0, blue: 0.0/255.0, alpha: 1.0).CGColor
+        cell.layer.borderColor = UIColor(red: 233.0/255.0, green: 127.0/255.0, blue: 2.0/255.0, alpha: 1.0).CGColor
         cell.layer.shouldRasterize = true
         cell.layer.rasterizationScale = UIScreen.mainScreen().scale
     
