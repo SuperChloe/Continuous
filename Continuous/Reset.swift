@@ -53,10 +53,16 @@ struct Reset {
         pushNotification.alertBody = "Did you \(habit.name) this \(habit.interval.rawValue)"
         pushNotification.alertAction = "Open"
         pushNotification.fireDate = NSDate()
-        pushNotification.repeatInterval = .Minute
         pushNotification.soundName = UILocalNotificationDefaultSoundName
         pushNotification.userInfo = ["Creation": habit.creationDate]
+        pushNotification.userInfo = ["UUID" : habit.uuid]
         pushNotification.category = "HABIT_CATEGORY"
+        switch habit.interval as Interval {
+            case .Daily: pushNotification.repeatInterval = .Day
+            case .Weekly: pushNotification.repeatInterval = .WeekOfYear
+            case .Monthly: pushNotification.repeatInterval = .Month
+            case .Yearly: pushNotification.repeatInterval = .Year
+        }
         UIApplication.sharedApplication().scheduleLocalNotification(pushNotification)
     }
     

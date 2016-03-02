@@ -67,6 +67,12 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         pushNotification.soundName = UILocalNotificationDefaultSoundName
         pushNotification.userInfo = ["UUID" : habit.uuid]
         pushNotification.category = "HABIT_CATEGORY"
+        switch habit.interval as Interval {
+            case .Daily: pushNotification.repeatInterval = .Day
+            case .Weekly: pushNotification.repeatInterval = .WeekOfYear
+            case .Monthly: pushNotification.repeatInterval = .Month
+            case .Yearly: pushNotification.repeatInterval = .Year
+        }
         UIApplication.sharedApplication().scheduleLocalNotification(pushNotification)
         
         delegate?.goToHabitCollection()
