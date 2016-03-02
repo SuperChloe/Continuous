@@ -42,7 +42,7 @@ class DetailViewController: UIViewController, FSCalendarDataSource, FSCalendarDe
            calendarView.selectDate(date.date)
         }
         
-        titleLabel.text = habit?.name
+        titleLabel.text = habit?.name.uppercaseString
         goalsLabel.text = "\(habit!.goalFrequency) times a \(habit!.interval.rawValue)"
         dateLabel.text = "started on \(dateString)"
         currentStreakLabel.text = "Current Streak: \(habit!.currentStreak)"

@@ -300,7 +300,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="73" id="ONw-fy-eXV"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="50"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="45"/>
                                                 <color key="textColor" red="0.91372549020000005" green="0.49803921569999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -365,6 +365,11 @@
                                             <constraint firstItem="IsS-34-yhZ" firstAttribute="top" secondItem="Thh-DI-edZ" secondAttribute="bottom" constant="51" id="tBo-ix-xHL"/>
                                             <constraint firstItem="IsS-34-yhZ" firstAttribute="leading" secondItem="E0E-PK-fGy" secondAttribute="leading" constant="8" id="vIE-aF-j4M"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="PfB-7n-rEB"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NB6-km-C10" customClass="Calendar" customModule="Continuous" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="350" width="600" height="250"/>
