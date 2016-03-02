@@ -266,6 +266,11 @@
                                                 <state key="normal" title="Share!">
                                                     <color key="titleColor" red="0.91372549020000005" green="0.49803921569999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="shareButtonPressed:" destination="nzG-fW-lfK" eventType="touchUpInside" id="VRb-Yd-coq"/>
                                                 </connections>
@@ -281,6 +286,11 @@
                                                 <state key="normal" title="Delete!">
                                                     <color key="titleColor" red="0.91372549020000005" green="0.49803921569999998" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="deleteButtonPressed:" destination="nzG-fW-lfK" eventType="touchUpInside" id="Y4o-As-SAq"/>
                                                 </connections>
@@ -407,7 +417,7 @@
                         <outlet property="deleteButton" destination="eAU-lf-MR2" id="hpg-wQ-3Ih"/>
                         <outlet property="goalsLabel" destination="Thh-DI-edZ" id="vKQ-7b-Fvw"/>
                         <outlet property="longestStreakLabel" destination="H2D-zZ-xdm" id="Y47-JR-4TO"/>
-                        <outlet property="sharebutton" destination="bKd-uH-u7X" id="k6A-Rk-eb1"/>
+                        <outlet property="shareButton" destination="bKd-uH-u7X" id="Uzi-UO-lGx"/>
                         <outlet property="titleLabel" destination="TOA-hj-nrh" id="1Ea-Ry-CFP"/>
                     </connections>
                 </viewController>

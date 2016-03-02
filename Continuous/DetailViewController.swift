@@ -21,7 +21,7 @@ class DetailViewController: UIViewController, FSCalendarDataSource, FSCalendarDe
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var currentStreakLabel: UILabel!
     @IBOutlet weak var longestStreakLabel: UILabel!
-    @IBOutlet weak var sharebutton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     
     override func viewDidLoad() {
@@ -47,6 +47,9 @@ class DetailViewController: UIViewController, FSCalendarDataSource, FSCalendarDe
         dateLabel.text = "started on \(dateString)"
         currentStreakLabel.text = "Current Streak: \(habit!.currentStreak)"
         longestStreakLabel.text = "Longest Streak: \(habit!.longestStreak)"
+        
+        shareButton.layer.borderColor = UIColor(red: 233.0/255.0, green: 127.0/255.0, blue: 2.0/255.0, alpha: 1.0).CGColor
+        deleteButton.layer.borderColor = UIColor(red: 233.0/255.0, green: 127.0/255.0, blue: 2.0/255.0, alpha: 1.0).CGColor
     }
     
 // *************************************
