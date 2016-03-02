@@ -48,7 +48,9 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         intervalField.text = ""
     }
     
-    // MARK: Button - Saving to Realm
+// *************************************
+// MARK: Button - Saving to Realm
+// *************************************
 
     @IBAction func saveButtonPressed(sender: AnyObject) {
         let habit = createHabit()
@@ -80,7 +82,9 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         
     }
     
-    // MARK: Pickerview methods
+// *************************************
+// MARK: Pickerview methods
+// *************************************
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -98,7 +102,10 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         intervalField.text = pickerOptions[row]
     }
     
-    // MARK: Helper methods
+// *************************************
+// MARK: Helper methods
+// *************************************
+    
     func createHabit() -> Habit {
         let name = habitField.text!.capitalizedString
         let freq = Int(numberField.text!)!

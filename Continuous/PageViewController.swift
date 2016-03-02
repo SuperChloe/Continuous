@@ -40,7 +40,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         super.didReceiveMemoryWarning()
     }
     
-    // MARK: UIPageViewControllerDataSource
+// *************************************
+// MARK: UIPageViewControllerDataSource
+// *************************************
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         
@@ -81,7 +83,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         return orderedViewControllers[nextIndex]
     }
     
-    // MARK: UIPageViewControllerDelegate
+// *************************************
+// MARK: UIPageViewControllerDelegate
+// *************************************
     
     func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if !completed {
@@ -95,7 +99,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         }
     }
     
-    // MARK: PagingProtocol
+// *************************************
+// MARK: PagingProtocol
+// *************************************
     
     func goToHabitCollection(from: UIViewController) {
         if from.isKindOfClass(DetailViewController) {
@@ -123,7 +129,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         setViewControllers([detailViewController], direction: .Forward, animated: true, completion: nil)
     }
     
-    // MARK: Helper methods
+// *************************************
+// MARK: Helper methods
+// *************************************
     
     func discardDetail() {
         orderedViewControllers = Array(orderedViewControllers[0...1])

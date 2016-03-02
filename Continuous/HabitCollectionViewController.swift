@@ -14,7 +14,6 @@ private let reuseIdentifier = "HabitCell"
 class HabitCollectionViewController: UICollectionViewController {
     
     @IBOutlet var habitView: UICollectionView!
-   // var results = [Habit]()
     var results: Results<Habit>?
     var delegate: PagingProtocol?
     var gradientView: UIView?
@@ -58,8 +57,10 @@ class HabitCollectionViewController: UICollectionViewController {
         habitView.backgroundView?.bounds.origin.y = -habitView.contentOffset.y
     }
     
-    // MARK: UICollectionViewDataSource
-
+// *************************************
+// MARK: UICollectionViewDataSource
+// *************************************
+    
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -90,28 +91,26 @@ class HabitCollectionViewController: UICollectionViewController {
             }
         }
         
+        cell.layer.borderWidth = 1.0
+        cell.layer.borderColor = UIColor(red: 248.0/255.0, green: 202.0/255.0, blue: 0.0/255.0, alpha: 1.0).CGColor
         cell.layer.shouldRasterize = true
         cell.layer.rasterizationScale = UIScreen.mainScreen().scale
     
         return cell
     }
-//    
-//    override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-//        cell.backgroundView = UIView()
-//        GradientMaker.gradientYellow(cell.backgroundView!)
-//        
-//        cell.layer.shouldRasterize = true
-//        cell.layer.rasterizationScale = UIScreen.mainScreen().scale
-//    }
     
-    // MARK: UICollectionViewDelegate
+// *************************************
+// MARK: UICollectionViewDelegate
+// *************************************
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let habit = results![indexPath.row]
         delegate?.goToDetail(habit)
     }
     
-    // MARK: Helper methods
+// *************************************
+// MARK: Helper methods
+// *************************************
     
     func doubleTap(sender: UITapGestureRecognizer) {
         let point = sender.locationInView(habitView)

@@ -49,7 +49,9 @@ class DetailViewController: UIViewController, FSCalendarDataSource, FSCalendarDe
         longestStreakLabel.text = "Longest Streak: \(habit!.longestStreak)"
     }
     
-    // MARK: Buttons
+// *************************************
+// MARK: Buttons
+// *************************************
     
     @IBAction func shareButtonPressed(sender: AnyObject) {
         let shareActionSheet = UIAlertController(title: "Share", message: "What would you like to share?", preferredStyle: .ActionSheet)
