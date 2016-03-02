@@ -80,12 +80,18 @@ class DetailViewController: UIViewController, FSCalendarDataSource, FSCalendarDe
     }
 
     @IBAction func deleteButtonPressed(sender: AnyObject) {
+        for notification: UILocalNotification in UIApplication.sharedApplication().scheduledLocalNotifications! {
+            if (notification.userInfo!["UUID"] as! String == habit!.uuid) {
+                UIApplication.sharedApplication().cancelLocalNotification(notification)
+            }
+        }
+
         let realm = try! Realm()
         try! realm.write {
             realm.delete(habit!)
         }
         
-        delegate?.goToHabitCollection()
+        delegate?.goToHabitCollection(self)
     }
 
 }

@@ -80,7 +80,7 @@ class Habit: Object {
                 addToStreak = false
                 
                 for notification: UILocalNotification in UIApplication.sharedApplication().scheduledLocalNotifications! {
-                    if (notification.userInfo!["Creation"] as! NSDate == creationDate) {
+                    if (notification.userInfo!["UUID"] as! String == uuid) {
                         UIApplication.sharedApplication().cancelLocalNotification(notification)
                     }
                 }

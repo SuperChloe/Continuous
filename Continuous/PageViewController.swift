@@ -10,7 +10,7 @@ import UIKit
 
 protocol PagingProtocol {
     
-    func goToHabitCollection()
+    func goToHabitCollection(from: UIViewController)
     func goToDetail(habit: Habit)
     
 }
@@ -33,7 +33,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         createViewController.delegate = self
         habitCollectionViewController.delegate = self
         
-        goToHabitCollection()
+        goToHabitCollection(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,21 +90,21 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         
         if let previous = previousViewControllers.first {
             if previous.isKindOfClass(DetailViewController) {
-                orderedViewControllers = Array(orderedViewControllers[0...1])
-                
-                dispatch_async(dispatch_get_main_queue()) {
-                    // 'Reload data' hack
-                    self.dataSource = nil
-                    self.dataSource = self
-                }
+                discardDetail()
             }
         }
     }
     
     // MARK: PagingProtocol
     
-    func goToHabitCollection() {
-        setViewControllers([habitCollectionViewController], direction: .Forward, animated: true, completion: nil)
+    func goToHabitCollection(from: UIViewController) {
+        if from.isKindOfClass(DetailViewController) {
+            setViewControllers([habitCollectionViewController], direction: .Reverse, animated: true, completion: { (_) -> Void in
+                self.discardDetail()
+            })
+        } else {
+            setViewControllers([habitCollectionViewController], direction: .Forward, animated: true, completion: nil)
+        }
     }
     
     func goToDetail(habit: Habit) {
@@ -121,6 +121,18 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         //dataSource = self
         
         setViewControllers([detailViewController], direction: .Forward, animated: true, completion: nil)
+    }
+    
+    // MARK: Helper methods
+    
+    func discardDetail() {
+        orderedViewControllers = Array(orderedViewControllers[0...1])
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            // 'Reload data' hack
+            self.dataSource = nil
+            self.dataSource = self
+        }
     }
 
 }
