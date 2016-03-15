@@ -28,6 +28,14 @@ class Habit: Object {
     dynamic var name: String!
     dynamic var goalFrequency = 0
     dynamic var frequency = 0
+    dynamic var sortingIndex = 0
+    dynamic var creationDate: NSDate!
+    dynamic var currentStreak = 0
+    dynamic var longestStreak = 0
+    dynamic var addToStreak = true
+    dynamic var intervalDate: NSDate!
+    dynamic var uuid = NSUUID().UUIDString
+    let datesDone = List<Date>()
     
     private dynamic var rawInterval: String!
     var interval: Interval! {
@@ -42,15 +50,6 @@ class Habit: Object {
         }
     }
     
-    dynamic var sortingIndex = 0
-    dynamic var creationDate: NSDate!
-    dynamic var currentStreak = 0
-    dynamic var longestStreak = 0
-    dynamic var addToStreak = true
-    dynamic var intervalDate: NSDate!
-    dynamic var uuid = NSUUID().UUIDString
-    let datesDone = List<Date>()
-
     convenience required init(habitName: String, habitFrequency: Int, habitInterval: Interval, date: NSDate) {
         self.init()
         name = habitName
@@ -71,11 +70,6 @@ class Habit: Object {
                 }
                 frequency = 0
                 let date = Date()
-                //                let comp = NSDateComponents()
-                //                comp.day = 15
-                //                comp.month = 2
-                //                comp.year = 2016
-                //                date.date = NSCalendar.currentCalendar().dateFromComponents(comp)!
                 datesDone.insert(date, atIndex: 0)
                 addToStreak = false
                 
@@ -95,11 +89,6 @@ class Habit: Object {
         try! Realm().write {
             frequency = frequency - 1
             let date = Date()
-            //            let comp = NSDateComponents()
-            //            comp.day = 14
-            //            comp.month = 2
-            //            comp.year = 2016
-            //            date.date = NSCalendar.currentCalendar().dateFromComponents(comp)!
             datesDone.insert(date, atIndex: 0)
         }
     }
