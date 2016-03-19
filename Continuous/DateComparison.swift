@@ -10,6 +10,20 @@ import Foundation
 
 struct DateComparison {
     
-    static 
+    static func isSameDay(date1: NSDate, date2: NSDate) -> Bool {
+        return false
+    }
+    
+    static func isSameWeek(date1: NSDate, date2: NSDate) -> Bool {
+        return false
+    }
+    
+    static func isSameMonth(date1: NSDate, date2: NSDate) -> Bool {
+        return false
+    }
+    
+    static func isSameYear(date1: NSDate, date2: NSDate) -> Bool {
+        return false
+    }
     
 }
