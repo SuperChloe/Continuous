@@ -11,7 +11,7 @@ import Foundation
 struct DateComparison {
     
     static func isSameDay(date1: NSDate, date2: NSDate) -> Bool {
-        return false
+        return NSCalendar.currentCalendar().isDate(date1, inSameDayAsDate: date2)
     }
     
     static func isSameWeek(date1: NSDate, date2: NSDate) -> Bool {
