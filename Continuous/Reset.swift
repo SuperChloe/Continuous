@@ -18,28 +18,25 @@ struct Reset {
         let results = realm.objects(Habit)
         
         for habit: Habit in results {
-            // Yearly
-            if today.timeIntervalSinceDate(habit.intervalDate) >= (86400 * 365) {
-                resetValues(habit)
+            switch habit.interval! {
+            case .Yearly:
+                if !DateComparison.isSameYear(habit.intervalDate, date2: today) {
+                    resetValues(habit)
+                }
+            case .Monthly:
+                if !DateComparison.isSameMonth(habit.intervalDate, date2: today) {
+                    resetValues(habit)
+                }
+            case .Weekly:
+                if !DateComparison.isSameWeek(habit.intervalDate, date2: today) {
+                    resetValues(habit)
+                }
+            case .Daily:
+                if !DateComparison.isSameDay(habit.intervalDate, date2: today) {
+                    resetValues(habit)
+                }
             }
-            // Monthly
-            if today.timeIntervalSinceDate(habit.intervalDate) >= (86400 * 30) {
-                resetValues(habit)
-            }
-            // Weekly
-            if today.timeIntervalSinceDate(habit.intervalDate) >= 604800 {
-                resetValues(habit)
-            }
-            // Daily
-            if today.timeIntervalSinceDate(habit.intervalDate) >= 86400 {
-                resetValues(habit)
-            }
-//            // Test (3 secs)
-//            if today.timeIntervalSinceDate(habit.intervalDate) >= 3 {
-//                resetValues(habit)
-//            }
         }
-        
     }
     
     func resetValues(habit: Habit) {

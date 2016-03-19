@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var backgroundDate: NSDate?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        Reset().checkReset()
+        
         let yesAction = UIMutableUserNotificationAction()
         yesAction.identifier = "YES"
         yesAction.title = "Yes"
