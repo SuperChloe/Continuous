@@ -128,7 +128,7 @@ class ContinuousTests: XCTestCase {
         comp2.year = 2016
         let date2 = NSCalendar.currentCalendar().dateFromComponents(comp2)!
         
-        XCTAssertFalse(DateComparison.isSameYear(date0, date2: date2))
+        XCTAssertTrue(DateComparison.isSameWeek(date0, date2: date2))
     }
 
 }

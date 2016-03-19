@@ -15,15 +15,15 @@ struct DateComparison {
     }
     
     static func isSameWeek(date1: NSDate, date2: NSDate) -> Bool {
-        return false
+        return NSCalendar.currentCalendar().isDate(date1, equalToDate: date2, toUnitGranularity: .WeekOfYear)
     }
     
     static func isSameMonth(date1: NSDate, date2: NSDate) -> Bool {
-        return false
+        return NSCalendar.currentCalendar().isDate(date1, equalToDate: date2, toUnitGranularity: .Month)
     }
     
     static func isSameYear(date1: NSDate, date2: NSDate) -> Bool {
-        return false
+        return NSCalendar.currentCalendar().isDate(date1, equalToDate: date2, toUnitGranularity: .Year)
     }
     
 }
