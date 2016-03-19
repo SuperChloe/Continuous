@@ -44,10 +44,14 @@ struct Reset {
     
     func resetValues(habit: Habit) {
         try! realm.write {
+            if habit.addToStreak == true {
+                habit.currentStreak = 0
+            }
             habit.frequency = habit.goalFrequency
             habit.addToStreak = true
             habit.intervalDate = NSDate()
         }
+        
         
         let pushNotification = UILocalNotification()
         pushNotification.alertBody = "Did you \(habit.name) this \(habit.interval.rawValue)"
