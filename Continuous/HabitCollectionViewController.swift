@@ -133,8 +133,14 @@ class HabitCollectionViewController: UICollectionViewController, UICollectionVie
         let habit = results![indexPath!.row]
         
         habit.changeFrequency()
-
-        habitView.reloadData()
+        
+        let newIndexPath = NSIndexPath(forItem: results!.indexOf(habit)!, inSection: 0)
+        
+        habitView.performBatchUpdates({
+            self.habitView.moveItemAtIndexPath(indexPath!, toIndexPath: newIndexPath)
+        }, completion: { _ in
+            self.habitView.reloadData()
+        })
     }
     
     func fetchAndReload() {
