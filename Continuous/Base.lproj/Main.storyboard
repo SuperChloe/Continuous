@@ -25,7 +25,7 @@
                             <size key="itemSize" width="155" height="155"/>
                             <size key="headerReferenceSize" width="0.0" height="70"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="20" maxX="10" maxY="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="20" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HabitCell" id="MRX-nM-wcX" customClass="HabitCollectionViewCell" customModule="Continuous" customModuleProvider="target">
