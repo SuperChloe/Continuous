@@ -10,5 +10,6 @@
 #define Continuous_Bridging_Header_h
 
 #import "FSCalendar.h"
+#import "Pop/POP.h"
 
 #endif /* Continuous_Bridging_Header_h */

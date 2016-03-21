@@ -7,6 +7,7 @@ target 'Continuous' do
 
 pod 'RealmSwift'
 pod 'FSCalendar'
+pod 'pop', '~> 1.0'
 
 end
 

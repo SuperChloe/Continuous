@@ -122,10 +122,6 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         }
         orderedViewControllers.append(detailViewController)
         
-        // 'Reload data' hack (may be unnecessary in recent iOS?)
-        //dataSource = nil
-        //dataSource = self
-        
         setViewControllers([detailViewController], direction: .Forward, animated: true, completion: nil)
     }
     
