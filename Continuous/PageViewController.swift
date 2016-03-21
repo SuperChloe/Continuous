@@ -47,6 +47,10 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         
         guard let viewControllerIndex = orderedViewControllers.indexOf(viewController) else {
+            if viewController.isKindOfClass(DetailViewController) {
+                // Bug fix when DetailViewController has been popped from orderedViewControllers but is still loaded in PageViewController
+                return orderedViewControllers[1]
+            }
             return nil
         }
         
