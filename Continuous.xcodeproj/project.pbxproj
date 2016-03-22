@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		897A3A1F1CA1EFC100BF6FA0 /* LocalPushSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897A3A1E1CA1EFC100BF6FA0 /* LocalPushSetup.swift */; };
 		897BC22C1C9DC51700466A37 /* ContinuousTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897BC22B1C9DC51700466A37 /* ContinuousTests.swift */; };
 		897BC2341C9DC99D00466A37 /* DateComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897BC2331C9DC99D00466A37 /* DateComparison.swift */; };
 		897BC2361CA0DA7600466A37 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 897BC2351CA0DA7600466A37 /* Keys.plist */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		23F7500D97E2E845D3312F03 /* Pods_Continuous.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Continuous.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		897A3A1E1CA1EFC100BF6FA0 /* LocalPushSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalPushSetup.swift; sourceTree = "<group>"; };
 		897BC2291C9DC51700466A37 /* ContinuousTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContinuousTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		897BC22B1C9DC51700466A37 /* ContinuousTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousTests.swift; sourceTree = "<group>"; };
 		897BC22D1C9DC51700466A37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				898C5BEA1C7BAEA800E67F6E /* AppDelegate.swift */,
 				89F22D811C86070F00ECA298 /* Reset.swift */,
+				897A3A1E1CA1EFC100BF6FA0 /* LocalPushSetup.swift */,
 				897BC2331C9DC99D00466A37 /* DateComparison.swift */,
 				898C5BEC1C7BAEA800E67F6E /* CreateViewController.swift */,
 				899E8AFB1CA1EA54003BD478 /* CreateViewController+PickerView.swift */,
@@ -336,6 +339,7 @@
 				899E8AFC1CA1EA54003BD478 /* CreateViewController+PickerView.swift in Sources */,
 				898C5BFD1C7BC8C300E67F6E /* HabitCollectionViewController.swift in Sources */,
 				89F22D821C86070F00ECA298 /* Reset.swift in Sources */,
+				897A3A1F1CA1EFC100BF6FA0 /* LocalPushSetup.swift in Sources */,
 				897BC2341C9DC99D00466A37 /* DateComparison.swift in Sources */,
 				898C5BFF1C7BC8ED00E67F6E /* DetailViewController.swift in Sources */,
 			);
