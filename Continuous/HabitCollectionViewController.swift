@@ -48,10 +48,12 @@ class HabitCollectionViewController: UICollectionViewController, UICollectionVie
     }
     
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         GradientMaker.gradientBackground(habitView.backgroundView!)
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         self.habitView.backgroundView!.frame = self.view.bounds
     }
     
@@ -128,16 +130,18 @@ class HabitCollectionViewController: UICollectionViewController, UICollectionVie
     
     func doubleTap(sender: UITapGestureRecognizer) {
         let point = sender.locationInView(habitView)
-        let indexPath = habitView.indexPathForItemAtPoint(point)
+        guard let indexPath = habitView.indexPathForItemAtPoint(point) else {
+            return
+        }
         
-        let habit = results![indexPath!.row]
+        let habit = results![indexPath.row]
         
         habit.changeFrequency()
         
         let newIndexPath = NSIndexPath(forItem: results!.indexOf(habit)!, inSection: 0)
         
         habitView.performBatchUpdates({
-            self.habitView.moveItemAtIndexPath(indexPath!, toIndexPath: newIndexPath)
+            self.habitView.moveItemAtIndexPath(indexPath, toIndexPath: newIndexPath)
         }, completion: { _ in
             self.habitView.reloadData()
         })
