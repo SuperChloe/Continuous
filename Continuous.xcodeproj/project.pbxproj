@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		897BC22C1C9DC51700466A37 /* ContinuousTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897BC22B1C9DC51700466A37 /* ContinuousTests.swift */; };
 		897BC2341C9DC99D00466A37 /* DateComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897BC2331C9DC99D00466A37 /* DateComparison.swift */; };
+		897BC2361CA0DA7600466A37 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 897BC2351CA0DA7600466A37 /* Keys.plist */; };
 		898C5BEB1C7BAEA800E67F6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898C5BEA1C7BAEA800E67F6E /* AppDelegate.swift */; };
 		898C5BED1C7BAEA800E67F6E /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898C5BEC1C7BAEA800E67F6E /* CreateViewController.swift */; };
 		898C5BF01C7BAEA800E67F6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 898C5BEE1C7BAEA800E67F6E /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		897BC22B1C9DC51700466A37 /* ContinuousTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousTests.swift; sourceTree = "<group>"; };
 		897BC22D1C9DC51700466A37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		897BC2331C9DC99D00466A37 /* DateComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateComparison.swift; sourceTree = "<group>"; };
+		897BC2351CA0DA7600466A37 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		898C5BE71C7BAEA800E67F6E /* Continuous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Continuous.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		898C5BEA1C7BAEA800E67F6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		898C5BEC1C7BAEA800E67F6E /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				898C5BF11C7BAEA800E67F6E /* Assets.xcassets */,
 				898C5BF31C7BAEA800E67F6E /* LaunchScreen.storyboard */,
 				898C5BF61C7BAEA800E67F6E /* Info.plist */,
+				897BC2351CA0DA7600466A37 /* Keys.plist */,
 				89F22D7C1C852DCB00ECA298 /* Continuous-Bridging-Header.h */,
 			);
 			path = Continuous;
@@ -248,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				897BC2361CA0DA7600466A37 /* Keys.plist in Resources */,
 				898C5BF51C7BAEA800E67F6E /* LaunchScreen.storyboard in Resources */,
 				898C5BF21C7BAEA800E67F6E /* Assets.xcassets in Resources */,
 				898C5BF01C7BAEA800E67F6E /* Main.storyboard in Resources */,
@@ -502,6 +506,7 @@
 				897BC2311C9DC51700466A37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		898C5BE21C7BAEA800E67F6E /* Build configuration list for PBXProject "Continuous" */ = {
 			isa = XCConfigurationList;

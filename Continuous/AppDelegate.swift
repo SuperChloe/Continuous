@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Flurry_iOS_SDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var backgroundDate: NSDate?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        var keys: NSDictionary?
+        if let path = NSBundle.mainBundle().pathForResource("Keys", ofType: "plist") {
+            keys = NSDictionary(contentsOfFile: path)
+        }
+        
+        let flurryId = keys?["flurryAPIKey"] as? String
+        
+        Flurry.startSession(flurryId)
         
         Reset().checkReset()
         
@@ -38,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         habitCategory.setActions([yesAction, noAction], forContext: .Minimal)
         
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: NSSet(array: [habitCategory]) as? Set<UIUserNotificationCategory>))
+        
         return true
     }
 

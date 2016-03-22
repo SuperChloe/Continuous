@@ -8,6 +8,7 @@ target 'Continuous' do
 pod 'RealmSwift'
 pod 'FSCalendar'
 pod 'pop', '~> 1.0'
+pod 'Flurry-iOS-SDK/FlurrySDK'
 
 end
 

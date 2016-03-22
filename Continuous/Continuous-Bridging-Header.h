@@ -11,5 +11,6 @@
 
 #import "FSCalendar.h"
 #import "Pop/POP.h"
+#import "Flurry.h"
 
 #endif /* Continuous_Bridging_Header_h */

@@ -1,4 +1,5 @@
 PODS:
+  - Flurry-iOS-SDK/FlurrySDK (7.5.2)
   - FSCalendar (1.8.2)
   - pop (1.0.9)
   - Realm (0.98.2):
@@ -8,11 +9,13 @@ PODS:
     - Realm (= 0.98.2)
 
 DEPENDENCIES:
+  - Flurry-iOS-SDK/FlurrySDK
   - FSCalendar
   - pop (~> 1.0)
   - RealmSwift
 
 SPEC CHECKSUMS:
+  Flurry-iOS-SDK: 8c87c4eab6008184ad9f63afabd79ec0d109c82e
   FSCalendar: 5e348e1352f7513096812e4023e39b64b856bb7e
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   Realm: 88a147fe04b8f07191a676b15c779b2b448991de
