@@ -17,6 +17,7 @@
 		898C5BF51C7BAEA800E67F6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 898C5BF31C7BAEA800E67F6E /* LaunchScreen.storyboard */; };
 		898C5BFD1C7BC8C300E67F6E /* HabitCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898C5BFC1C7BC8C300E67F6E /* HabitCollectionViewController.swift */; };
 		898C5BFF1C7BC8ED00E67F6E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898C5BFE1C7BC8ED00E67F6E /* DetailViewController.swift */; };
+		899E8AFC1CA1EA54003BD478 /* CreateViewController+PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899E8AFB1CA1EA54003BD478 /* CreateViewController+PickerView.swift */; };
 		89DF7CCB1C8229E2003AA065 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DF7CCA1C8229E2003AA065 /* PageViewController.swift */; };
 		89EDD6BC1C7CB9A5007E82B9 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EDD6BB1C7CB9A5007E82B9 /* Habit.swift */; };
 		89EDD6BE1C7CE56C007E82B9 /* CreateViewController+QuoteFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EDD6BD1C7CE56C007E82B9 /* CreateViewController+QuoteFetch.swift */; };
@@ -54,6 +55,7 @@
 		898C5BF61C7BAEA800E67F6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		898C5BFC1C7BC8C300E67F6E /* HabitCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitCollectionViewController.swift; sourceTree = "<group>"; };
 		898C5BFE1C7BC8ED00E67F6E /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		899E8AFB1CA1EA54003BD478 /* CreateViewController+PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CreateViewController+PickerView.swift"; sourceTree = "<group>"; };
 		89DF7CCA1C8229E2003AA065 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		89EDD6BB1C7CB9A5007E82B9 /* Habit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		89EDD6BD1C7CE56C007E82B9 /* CreateViewController+QuoteFetch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CreateViewController+QuoteFetch.swift"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				89F22D811C86070F00ECA298 /* Reset.swift */,
 				897BC2331C9DC99D00466A37 /* DateComparison.swift */,
 				898C5BEC1C7BAEA800E67F6E /* CreateViewController.swift */,
+				899E8AFB1CA1EA54003BD478 /* CreateViewController+PickerView.swift */,
 				89EDD6BD1C7CE56C007E82B9 /* CreateViewController+QuoteFetch.swift */,
 				898C5BFE1C7BC8ED00E67F6E /* DetailViewController.swift */,
 				89EDD6BB1C7CB9A5007E82B9 /* Habit.swift */,
@@ -330,6 +333,7 @@
 				898C5BEB1C7BAEA800E67F6E /* AppDelegate.swift in Sources */,
 				89F22D801C85614500ECA298 /* Calendar.swift in Sources */,
 				89DF7CCB1C8229E2003AA065 /* PageViewController.swift in Sources */,
+				899E8AFC1CA1EA54003BD478 /* CreateViewController+PickerView.swift in Sources */,
 				898C5BFD1C7BC8C300E67F6E /* HabitCollectionViewController.swift in Sources */,
 				89F22D821C86070F00ECA298 /* Reset.swift in Sources */,
 				897BC2341C9DC99D00466A37 /* DateComparison.swift in Sources */,

@@ -86,26 +86,6 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     }
     
 // *************************************
-// MARK: Pickerview methods
-// *************************************
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerOptions.count
-    }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerOptions[row]
-    }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        intervalField.text = pickerOptions[row]
-    }
-    
-// *************************************
 // MARK: Helper methods
 // *************************************
     
