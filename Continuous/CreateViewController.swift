@@ -6,8 +6,8 @@
 //  Copyright © 2016 Chloe Horgan. All rights reserved.
 //
 
-import UIKit
 import RealmSwift
+import UIKit
 
 class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 

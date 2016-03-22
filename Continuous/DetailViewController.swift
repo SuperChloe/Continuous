@@ -6,9 +6,9 @@
 //  Copyright © 2016 Chloe Horgan. All rights reserved.
 //
 
-import UIKit
-import RealmSwift
 import FSCalendar
+import RealmSwift
+import UIKit
 
 class DetailViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate {
     

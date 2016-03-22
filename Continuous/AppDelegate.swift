@@ -6,9 +6,9 @@
 //  Copyright © 2016 Chloe Horgan. All rights reserved.
 //
 
-import UIKit
-import RealmSwift
 import Flurry_iOS_SDK
+import RealmSwift
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
