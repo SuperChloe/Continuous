@@ -27,7 +27,7 @@ class HabitCollectionViewController: UICollectionViewController, UICollectionVie
         gradientView = UIView()
         self.habitView.backgroundView = UIView()
         
-        let doubleTapGesture = UITapGestureRecognizer(target: self, action: "doubleTap:")
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(HabitCollectionViewController.doubleTap(_:)))
         doubleTapGesture.delaysTouchesBegan = true
         doubleTapGesture.numberOfTapsRequired = 2
         habitView.addGestureRecognizer(doubleTapGesture)
@@ -44,7 +44,7 @@ class HabitCollectionViewController: UICollectionViewController, UICollectionVie
         fetchAndReload()
         
         let notifcation = NSNotificationCenter.defaultCenter()
-        notifcation.addObserver(self, selector: "fetchAndReload", name: "EnterForeground", object: nil)
+        notifcation.addObserver(self, selector: #selector(HabitCollectionViewController.fetchAndReload), name: "EnterForeground", object: nil)
     }
     
     override func viewDidAppear(animated: Bool) {

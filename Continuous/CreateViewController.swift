@@ -78,7 +78,7 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             case .Monthly: pushNotification.repeatInterval = .Month
             case .Yearly: pushNotification.repeatInterval = .Year
         }
-//        pushNotification.repeatInterval = .Minute
+        
         UIApplication.sharedApplication().scheduleLocalNotification(pushNotification)
         
         delegate?.goToHabitCollection(self)
@@ -103,7 +103,7 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         toolBar.tintColor = UIColor(red: 233.0/255.0, green: 127.0/255.0, blue: 2.0/255.0, alpha: 1.0)
         toolBar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "dismissInput")
+        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(CreateViewController.dismissInput))
         let space = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: self, action: nil)
         
         toolBar.setItems([space, doneButton], animated: false)
