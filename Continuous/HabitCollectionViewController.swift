@@ -17,14 +17,12 @@ class HabitCollectionViewController: UICollectionViewController, UICollectionVie
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     var results: Results<Habit>?
     var delegate: PagingProtocol?
-    var gradientView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         habitView.delegate = self
         habitView.dataSource = self
-        gradientView = UIView()
         self.habitView.backgroundView = UIView()
         
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(HabitCollectionViewController.doubleTap(_:)))
@@ -37,8 +35,6 @@ class HabitCollectionViewController: UICollectionViewController, UICollectionVie
     }
     
     override func viewWillAppear(animated: Bool) {
-        
-        self.habitView.backgroundView!.frame = self.view.bounds
         GradientMaker.gradientBackground(habitView.backgroundView!)
         
         fetchAndReload()
@@ -50,15 +46,6 @@ class HabitCollectionViewController: UICollectionViewController, UICollectionVie
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         GradientMaker.gradientBackground(habitView.backgroundView!)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.habitView.backgroundView!.frame = self.view.bounds
-    }
-    
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
-        habitView.backgroundView?.bounds.origin.y = -habitView.contentOffset.y
     }
     
 // *************************************
