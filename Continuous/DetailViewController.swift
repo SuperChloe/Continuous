@@ -81,22 +81,30 @@ class DetailViewController: UIViewController, FSCalendarDataSource, FSCalendarDe
         }))
         
         shareActionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        
         presentViewController(shareActionSheet, animated: true, completion: nil)
     }
 
     @IBAction func deleteButtonPressed(sender: AnyObject) {
-        for notification: UILocalNotification in UIApplication.sharedApplication().scheduledLocalNotifications! {
-            if (notification.userInfo!["UUID"] as! String == habit!.uuid) {
-                UIApplication.sharedApplication().cancelLocalNotification(notification)
-            }
-        }
-
-        let realm = try! Realm()
-        try! realm.write {
-            realm.delete(habit!)
-        }
+        let deleteAlert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this habit?", preferredStyle: .Alert)
         
-        delegate?.goToHabitCollection(self)
+        deleteAlert.addAction(UIAlertAction(title: "DELETE", style: .Destructive, handler: { (deleteAlert) in
+            for notification: UILocalNotification in UIApplication.sharedApplication().scheduledLocalNotifications! {
+                if (notification.userInfo!["UUID"] as! String == self.habit!.uuid) {
+                    UIApplication.sharedApplication().cancelLocalNotification(notification)
+                }
+            }
+            
+            let realm = try! Realm()
+            try! realm.write {
+                realm.delete(self.habit!)
+            }
+            
+            self.delegate?.goToHabitCollection(self)
+        }))
+        
+        deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        
+        presentViewController(deleteAlert, animated: true, completion: nil)
     }
-
 }
