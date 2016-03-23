@@ -29,6 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Reset().checkReset()
         
+        if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") {
+            application.cancelAllLocalNotifications()
+        }
+        
         let yesAction = UIMutableUserNotificationAction()
         yesAction.identifier = "YES"
         yesAction.title = "Yes"
@@ -77,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if identifier == "YES" {
             habit?.changeFrequency()
         } else if identifier == "NO" {
-            print("noooo")
+            print("no")
         }
         completionHandler()
     }
