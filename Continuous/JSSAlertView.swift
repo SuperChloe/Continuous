@@ -105,7 +105,7 @@ class JSSAlertView: UIViewController {
         case .Text:
             if self.textView != nil {
                 self.textFont = fontStr
-                if let font = UIFont(name: self.textFont, size: 12) {
+                if let font = UIFont(name: self.textFont, size: 14) {
                     self.textView.font = font
                 } else {
                     self.textView.font = UIFont.systemFontOfSize(16)
@@ -319,7 +319,7 @@ class JSSAlertView: UIViewController {
         let buttonHighlightColor = UIImage.withColor(adjustBrightness(baseColor!, amount: 0.9))
         dismissButton.setBackgroundImage(buttonColor, forState: .Normal)
         dismissButton.setBackgroundImage(buttonHighlightColor, forState: .Highlighted)
-        dismissButton.addTarget(self, action: "buttonTap", forControlEvents: .TouchUpInside)
+        dismissButton.addTarget(self, action: #selector(JSSAlertView.buttonTap), forControlEvents: .TouchUpInside)
         alertBackgroundView!.addSubview(dismissButton)
         // Button text
         self.buttonLabel = UILabel()
@@ -340,7 +340,7 @@ class JSSAlertView: UIViewController {
             let buttonHighlightColor = UIImage.withColor(adjustBrightness(baseColor!, amount: 0.9))
             cancelButton.setBackgroundImage(buttonColor, forState: .Normal)
             cancelButton.setBackgroundImage(buttonHighlightColor, forState: .Highlighted)
-            cancelButton.addTarget(self, action: "cancelButtonTap", forControlEvents: .TouchUpInside)
+            cancelButton.addTarget(self, action: #selector(JSSAlertView.cancelButtonTap), forControlEvents: .TouchUpInside)
             alertBackgroundView!.addSubview(cancelButton)
             // Button text
             self.cancelButtonLabel = UILabel()
