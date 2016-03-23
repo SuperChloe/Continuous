@@ -21,6 +21,14 @@ class HabitCollectionViewController: UICollectionViewController, UICollectionVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let onboarding = JSSAlertView().show(self, title: "Welcome to Continuous!",
+                            text: "Swipe right to create your first habit. \n Double-tap on a habit if you've done it. \n Single-tap to view stats about that habit. \n Enjoy!",
+                            buttonText: "Got it!",
+                            color: UIColor(red: 248.0/255.0, green: 202.0/255.0, blue: 0.0/255.0, alpha: 1.0))
+        onboarding.setTitleFont("Futura-Medium")
+        onboarding.setTextFont("Futura-Medium")
+        onboarding.setButtonFont("Futura-Medium")
+        
         habitView.delegate = self
         habitView.dataSource = self
         self.habitView.backgroundView = UIView()
