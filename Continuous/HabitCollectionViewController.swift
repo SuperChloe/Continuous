@@ -77,7 +77,11 @@ class HabitCollectionViewController: UICollectionViewController, UICollectionVie
         } else {
             cell.frequencyLabel!.text = String(habit.frequency)
             if habit.interval == .Daily {
-                cell.intervalLabel!.text = "more times today"
+                if habit.frequency == 1 {
+                    cell.intervalLabel!.text = "more time today"
+                } else {
+                    cell.intervalLabel!.text = "more times today"
+                }
             } else {
                 cell.intervalLabel!.text = "more times this \(habit.interval!.rawValue)"
             }
