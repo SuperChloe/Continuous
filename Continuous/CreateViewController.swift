@@ -58,16 +58,18 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
 // *************************************
 
     @IBAction func saveButtonPressed(sender: AnyObject) {
-        let habit = createHabit()
-        let realm = try! Realm()
-        try! realm.write {
-            realm.add(habit)
+        if (habitField.text!.isEmpty || numberField.text!.isEmpty || intervalField.text!.isEmpty) {
+        } else {
+            let habit = createHabit()
+            let realm = try! Realm()
+            try! realm.write {
+                realm.add(habit)
+            }
+            
+            LocalPushSetup.setupLocalPushNotification(habit)
+            
+            delegate?.goToHabitCollection(self)
         }
-        
-        LocalPushSetup.setupLocalPushNotification(habit)
-        
-        delegate?.goToHabitCollection(self)
-        
     }
     
 // *************************************
