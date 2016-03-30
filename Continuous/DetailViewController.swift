@@ -43,7 +43,11 @@ class DetailViewController: UIViewController, FSCalendarDataSource, FSCalendarDe
         }
         
         titleLabel.text = habit?.name.uppercaseString
-        goalsLabel.text = "\(habit!.goalFrequency) times a \(habit!.interval.rawValue)"
+        if habit!.goalFrequency == 1 {
+            goalsLabel.text = "Once a \(habit!.interval.rawValue)"
+        } else {
+            goalsLabel.text = "\(habit!.goalFrequency) times a \(habit!.interval.rawValue)"
+        }
         dateLabel.text = "started on \(dateString)"
         currentStreakLabel.text = "Current Streak: \(habit!.currentStreak)"
         longestStreakLabel.text = "Longest Streak: \(habit!.longestStreak)"
