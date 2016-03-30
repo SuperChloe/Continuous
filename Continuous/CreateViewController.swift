@@ -59,6 +59,7 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
 
     @IBAction func saveButtonPressed(sender: AnyObject) {
         if (habitField.text!.isEmpty || numberField.text!.isEmpty || intervalField.text!.isEmpty) {
+            showIncompleteFieldsAlerts()
         } else {
             let habit = createHabit()
             let realm = try! Realm()
@@ -70,6 +71,12 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             
             delegate?.goToHabitCollection(self)
         }
+    }
+    
+    func showIncompleteFieldsAlerts() {
+        let incompleteAlert = UIAlertController(title: "Oops!", message: "Please complete all fields", preferredStyle: .Alert)
+        incompleteAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        presentViewController(incompleteAlert, animated: true, completion: nil)
     }
     
 // *************************************
