@@ -1,5 +1,6 @@
 # Continuous
 Habit tracking app (Lighthouse Labs Final Project)
+Available in the App Store http://continuousapp.com
 
 ![Continuous1](continuous1.PNG) ![Continuous2](continuous2.PNG) 
 
