@@ -49,6 +49,12 @@ struct Reset {
             habit.intervalDate = NSDate()
         }
         
+        for notification: UILocalNotification in UIApplication.sharedApplication().scheduledLocalNotifications! {
+            if (notification.userInfo!["UUID"] as! String == habit.uuid) {
+                UIApplication.sharedApplication().cancelLocalNotification(notification)
+            }
+        }
+        
         LocalPushSetup.setupLocalPushNotification(habit)
 
     }
