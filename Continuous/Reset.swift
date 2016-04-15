@@ -41,22 +41,14 @@ struct Reset {
     
     func resetValues(habit: Habit) {
         try! realm.write {
-            if habit.addToStreak == true {
+            if habit.addToStreak == false {
+                LocalPushSetup.setupLocalPushNotification(habit)
+            } else if habit.addToStreak == true {
                 habit.currentStreak = 0
             }
             habit.frequency = habit.goalFrequency
             habit.addToStreak = true
             habit.intervalDate = NSDate()
         }
-        
-        for notification: UILocalNotification in UIApplication.sharedApplication().scheduledLocalNotifications! {
-            if (notification.userInfo!["UUID"] as! String == habit.uuid) {
-                UIApplication.sharedApplication().cancelLocalNotification(notification)
-            }
-        }
-        
-        LocalPushSetup.setupLocalPushNotification(habit)
-
     }
-    
 }
