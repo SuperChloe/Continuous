@@ -6,9 +6,12 @@
 //  Copyright © 2016 Chloe Horgan. All rights reserved.
 //
 
+import Crashlytics
+import Fabric
 import Flurry_iOS_SDK
 import RealmSwift
 import UIKit
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var backgroundDate: NSDate?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        Fabric.with([Crashlytics.self])
         
         var keys: NSDictionary?
         if let path = NSBundle.mainBundle().pathForResource("Keys", ofType: "plist") {
