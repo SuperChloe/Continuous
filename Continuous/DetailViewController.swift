@@ -14,6 +14,7 @@ class DetailViewController: UIViewController, FSCalendarDataSource, FSCalendarDe
     
     var habit: Habit?
     var delegate: PagingProtocol?
+    let todaysDate = NSDate()
     
     @IBOutlet weak var calendarView: FSCalendar!
     @IBOutlet weak var titleLabel: UILabel!
@@ -41,6 +42,8 @@ class DetailViewController: UIViewController, FSCalendarDataSource, FSCalendarDe
         for date: Date in habit!.datesDone {
            calendarView.selectDate(date.date)
         }
+        
+        calendarView.currentPage = todaysDate
         
         titleLabel.text = habit?.name.uppercaseString
         if habit!.goalFrequency == 1 {
